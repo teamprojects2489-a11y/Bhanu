@@ -1,0 +1,153 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const Footer: React.FC = () => {
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const socialLinks = [
+    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
+    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
+    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
+    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" }
+  ];
+
+  return (
+    <footer className="bg-gradient-to-br from-sky-800 via-sky-900 to-sky-950 py-16">
+      <div className="container mx-auto px-4">
+        {/* CTA Card */}
+        <motion.div
+          className="bg-sky-950 rounded-3xl p-12 mb-16 text-center text-white max-w-4xl mx-auto border border-sky-400/20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Create Magic?
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+          </p>
+          <p className="text-lg text-sky-200 mb-8 max-w-2xl mx-auto">
+            From concept to celebration, we've got you covered. Partner with 
+            Bhanu Events for world-class event planning and management solutions.
+          </p>
+          <motion.a
+            href="tel:+919876543210"
+            className="inline-flex items-center bg-sky-400 hover:bg-sky-300 text-sky-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Book a Consultation
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </motion.a>
+        </motion.div>
+
+        {/* Main Footer Content */}
+        <div className="text-center">
+          {/* Logo and Tagline */}
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center space-x-3 mb-2">
+              <div className="text-4xl">🎉</div>
+              <div>
+                <h3 className="text-3xl font-bold text-white">
+                  Bhanu Events<span className="text-lg align-top">™</span>
+                </h3>
+                <p className="text-sky-200 font-medium">WHERE JOY MEETS THE SKY</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            className="flex justify-center space-x-4 mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.href}
+                className="bg-red-950 hover:bg-red-800 text-yellow-300 p-3 rounded-full transition-all duration-300 border border-yellow-600/30"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.label}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Navigation Links */}
+          <motion.div
+            className="flex justify-center space-x-8 mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {quickLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="text-yellow-200 hover:text-yellow-300 font-medium transition-colors duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </motion.div>
+
+          {/* Contact Email */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="mailto:contact@bhanuevents.com"
+              className="text-yellow-200 hover:text-yellow-300 font-medium text-lg transition-colors duration-300"
+            >
+              contact@bhanuevents.com
+            </a>
+          </motion.div>
+
+          {/* Bottom Bar */}
+          <motion.div
+            className="border-t border-yellow-600/30 pt-8 flex flex-col md:flex-row items-center justify-between text-yellow-200"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="mb-4 md:mb-0">
+              <p>© 2024 Bhanu Events. All Rights Reserved.</p>
+            </div>
+            <div>
+              <p>Website Designed by <span className="font-semibold">Bhanu Events Team</span></p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
