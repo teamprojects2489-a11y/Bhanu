@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { logo } from "../assets/index";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,14 +45,15 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <div className="text-2xl">🎉</div>
+              {/* <div className="text-2xl">🎉</div> */}
+              <img src={logo} alt="Logo" className="w-8 h-8" />
               <div>
                 <h1
                   className={`text-xl md:text-2xl font-bold ${
                     isScrolled ? "text-yellow-300" : "text-yellow-300"
                   }`}
                 >
-                 SB EVENTS
+                  SB EVENTS
                 </h1>
                 <p
                   className={`text-xs ${
@@ -89,8 +91,8 @@ const Header: React.FC = () => {
               href="tel:+919876543210"
               className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
                 isScrolled
-                  ? "bg-yellow-600 text-red-900 hover:bg-yellow-500"
-                  : "bg-yellow-600/80 text-red-900 hover:bg-yellow-500"
+                  ? "bg-yellow-300 text-white-600 hover:bg-yellow-300"
+                  : "bg-yellow-300/80 text-white-600 hover:bg-yellow-300"
               }`}
             >
               <Phone size={16} />

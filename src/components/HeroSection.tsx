@@ -162,20 +162,6 @@ const HeroSection: React.FC = () => {
             Where the Joy Meets the Sky
           </p>
 
-          {/* Get Started Button */}
-          <button
-            ref={buttonRef}
-            className="bg-yellow-400 hover:bg-yellow-300 text-gray-800 px-8 py-4 rounded-full font-bold text-lg shadow-xl transform transition-all duration-300 hover:scale-105"
-            onClick={() => {
-              const element = document.getElementById("services");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-          >
-            🚀 Get Started
-          </button>
-
           {/* Floating Balloons */}
           <motion.div
             className="absolute -bottom-8 left-1/4 text-4xl"
