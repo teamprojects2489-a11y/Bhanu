@@ -9,7 +9,7 @@ const PricingSection: React.FC = () => {
     {
       id: 'basic',
       name: 'Basic Celebration',
-      price: '₹15,000',
+      price: '₹5,000',
       originalPrice: '₹20,000',
       icon: <Gift className="w-8 h-8" />,
       color: 'from-blue-400 to-cyan-500',

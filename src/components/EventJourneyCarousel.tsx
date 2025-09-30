@@ -80,7 +80,7 @@ const EventJourneyCarousel: React.FC = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Your Journey At <span className="text-yellow-600">Bhanu Events</span>
+            Your Journey At <span className="text-yellow-600">SB EVENTS</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Comprehensive event solutions, expert guidance, and consistent innovation – your 

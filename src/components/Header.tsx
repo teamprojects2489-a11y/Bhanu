@@ -51,7 +51,7 @@ const Header: React.FC = () => {
                     isScrolled ? "text-yellow-300" : "text-yellow-300"
                   }`}
                 >
-                  Bhanu Events
+                 SB EVENTS
                 </h1>
                 <p
                   className={`text-xs ${

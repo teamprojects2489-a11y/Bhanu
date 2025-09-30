@@ -58,7 +58,7 @@ const EventDevelopmentProcess: React.FC = () => {
                 <span className="text-gray-800">Process</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed max-w-md">
-                Bhanu Events' comprehensive planning process takes you from concept to celebration-ready events.
+                SB EVENTS' comprehensive planning process takes you from concept to celebration-ready events.
               </p>
             </motion.div>
           </div>

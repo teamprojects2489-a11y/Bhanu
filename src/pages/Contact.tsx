@@ -132,7 +132,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+918897399259"
                 className="bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                 <span>Call Now</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/919876543210?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
+                href="https://wa.me/918897399259?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"
@@ -211,16 +211,25 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">           
             <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Find Us</h2>
             <div className="bg-white p-4 rounded-2xl shadow-lg">
-              <div className="w-full h-96 bg-gray-200 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Interactive Map Coming Soon</p>
-                  <p className="text-sm text-gray-500 mt-2">Mumbai, Maharashtra, India</p>
-                </div>
+              <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
+                <iframe
+                  title="Vidya Nagar, Bangalore Map"
+                  src="https://www.google.com/maps?q=Vidya+Nagar,+Bangalore&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full rounded-xl"
+                ></iframe>
               </div>
             </div>
+            </h2>
+       
           </motion.div>
         </div>
       </section>

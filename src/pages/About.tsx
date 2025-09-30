@@ -82,7 +82,7 @@ const About: React.FC = () => {
               <span className="text-white font-semibold">✨ Our Story</span>
             </motion.div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              About Bhanu Events
+              About SB EVENTS
             </h1>
             <p className="text-xl text-yellow-200 leading-relaxed">
               We are passionate event planners dedicated to creating magical moments and unforgettable experiences. 
@@ -158,7 +158,7 @@ const About: React.FC = () => {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Bhanu Events was born from a simple belief: every celebration deserves to be extraordinary. 
+               SB EVENTS was born from a simple belief: every celebration deserves to be extraordinary. 
                 What started as a small venture has grown into a trusted name in event management, 
                 known for our creativity, attention to detail, and commitment to excellence.
               </p>

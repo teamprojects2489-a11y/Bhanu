@@ -16,7 +16,7 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 1,
       name: "Priya Sharma",
-      review: "Bhanu Events made our daughter's birthday absolutely magical! The decorations were stunning and the kids had so much fun with all the activities.",
+      review: "SB EVENTS made our daughter's birthday absolutely magical! The decorations were stunning and the kids had so much fun with all the activities.",
       rating: 5,
       event: "Birthday Party",
       avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150"

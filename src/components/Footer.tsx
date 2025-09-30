@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
           </p>
           <p className="text-lg text-sky-200 mb-8 max-w-2xl mx-auto">
             From concept to celebration, we've got you covered. Partner with 
-            Bhanu Events for world-class event planning and management solutions.
+           SB EVENTSfor world-class event planning and management solutions.
           </p>
           <motion.a
             href="tel:+919876543210"
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
               <div className="text-4xl">🎉</div>
               <div>
                 <h3 className="text-3xl font-bold text-white">
-                  Bhanu Events<span className="text-lg align-top">™</span>
+                  SB EVENTS<span className="text-lg align-top">™</span>
                 </h3>
                 <p className="text-sky-200 font-medium">WHERE JOY MEETS THE SKY</p>
               </div>
@@ -138,10 +138,10 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="mb-4 md:mb-0">
-              <p>© 2024 Bhanu Events. All Rights Reserved.</p>
+              <p>© 2025 SB EVENTS. All Rights Reserved.</p>
             </div>
             <div>
-              <p>Website Designed by <span className="font-semibold">Bhanu Events Team</span></p>
+              <p>Website Designed by <span className="font-semibold">Lilif and Team</span></p>
             </div>
           </motion.div>
         </div>

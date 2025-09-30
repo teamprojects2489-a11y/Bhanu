@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
             ref={titleRef}
             className="text-6xl md:text-8xl lg:text-9xl font-bold text-white drop-shadow-lg mb-6"
           >
-            Bhanu <span className="text-yellow-300">Events</span>
+            SB <span className="text-yellow-300">Events</span>
           </h1>
 
           <p

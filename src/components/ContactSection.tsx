@@ -24,7 +24,16 @@ const ContactSection: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    const message = `New Event Inquiry:%0A
+Name: ${formData.name}%0A
+Phone: ${formData.phone}%0A
+Email: ${formData.email}%0A
+Event Type: ${formData.eventType}%0A
+Message: ${formData.message}`;
+
+ const vendorNumber = "918897399259";
+  const whatsappUrl = `https://wa.me/${vendorNumber}?text=${message}`;
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -36,6 +45,7 @@ const ContactSection: React.FC = () => {
         eventType: '',
         message: ''
       });
+       window.open(whatsappUrl, "_blank");
       
       // Reset status after 3 seconds
       setTimeout(() => setSubmitStatus('idle'), 3000);

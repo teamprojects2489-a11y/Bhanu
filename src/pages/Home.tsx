@@ -23,7 +23,7 @@ const Home: React.FC = () => {
     <div>
       <HeroSection />
       <SplitHeroSection />
-      <Card3DCarousel />
+    
       <EventCarousel />
       <FeaturedEventsCarousel />
       <EventJourneyCarousel />
@@ -32,6 +32,7 @@ const Home: React.FC = () => {
       <GallerySection />
       <TeamSection />
       <ProcessSection />
+        <Card3DCarousel />
       <ClientsCarousel />
       <PricingSection />
       <TestimonialsSection />

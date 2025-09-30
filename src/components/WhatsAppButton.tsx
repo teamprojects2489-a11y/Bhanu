@@ -7,7 +7,7 @@ const WhatsAppButton: React.FC = () => {
   const buttonRef = useRef<HTMLDivElement>(null);
 
   const handleWhatsAppClick = () => {
-    const message = "Hi Bhanu Events, I'm interested in your services! 🎉";
+    const message = "Hi SB EVENTS, I'm interested in your services! 🎉 I would like to know more"; 
     const phoneNumber = "919876543210";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
