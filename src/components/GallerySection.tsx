@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { X, ChevronLeft, ChevronRight, Heart, Share2 } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GallerySection: React.FC = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLElement>(null);
   const galleryRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [currentCategory, setCurrentCategory] = useState('all');
+  const [currentCategory, setCurrentCategory] = useState("all");
 
   const galleryImages = [
     {
@@ -20,7 +22,7 @@ const GallerySection: React.FC = () => {
       category: "birthday",
       title: "Magical Birthday Celebration",
       description: "Colorful balloon decorations with themed setup",
-      size: "large" // Takes 2 columns
+      size: "large", // Takes 2 columns
     },
     {
       id: 2,
@@ -28,7 +30,7 @@ const GallerySection: React.FC = () => {
       category: "wedding",
       title: "Elegant Wedding Ceremony",
       description: "Beautiful floral arrangements and romantic ambiance",
-      size: "medium"
+      size: "medium",
     },
     {
       id: 3,
@@ -36,7 +38,7 @@ const GallerySection: React.FC = () => {
       category: "corporate",
       title: "Corporate Event Excellence",
       description: "Professional setup with modern staging",
-      size: "small"
+      size: "small",
     },
     {
       id: 4,
@@ -44,7 +46,7 @@ const GallerySection: React.FC = () => {
       category: "festival",
       title: "Vibrant Festival Celebration",
       description: "Traditional decorations with cultural elements",
-      size: "tall" // Takes 2 rows
+      size: "tall",
     },
     {
       id: 5,
@@ -52,7 +54,7 @@ const GallerySection: React.FC = () => {
       category: "birthday",
       title: "Kids Party Wonderland",
       description: "Fun activities and colorful decorations",
-      size: "medium"
+      size: "medium",
     },
     {
       id: 6,
@@ -60,7 +62,7 @@ const GallerySection: React.FC = () => {
       category: "wedding",
       title: "Dream Wedding Setup",
       description: "Luxury wedding with premium decorations",
-      size: "small"
+      size: "small",
     },
     {
       id: 7,
@@ -68,7 +70,7 @@ const GallerySection: React.FC = () => {
       category: "corporate",
       title: "Business Conference",
       description: "Professional event management and coordination",
-      size: "large"
+      size: "large",
     },
     {
       id: 8,
@@ -76,53 +78,22 @@ const GallerySection: React.FC = () => {
       category: "festival",
       title: "Cultural Festival",
       description: "Traditional celebration with authentic decorations",
-      size: "medium"
+      size: "small",
     },
-    {
-      id: 9,
-      src: "https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "birthday",
-      title: "Princess Theme Party",
-      description: "Magical princess decorations and activities",
-      size: "tall"
-    },
-    {
-      id: 10,
-      src: "https://images.pexels.com/photos/1616113/pexels-photo-1616113.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "wedding",
-      title: "Garden Wedding",
-      description: "Outdoor wedding with natural beauty",
-      size: "small"
-    },
-    {
-      id: 11,
-      src: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "corporate",
-      title: "Product Launch Event",
-      description: "Modern corporate event with tech setup",
-      size: "medium"
-    },
-    {
-      id: 12,
-      src: "https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&w=800",
-      category: "festival",
-      title: "Diwali Celebration",
-      description: "Traditional Indian festival decorations",
-      size: "large"
-    }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Events', emoji: '🎉' },
-    { id: 'birthday', name: 'Birthdays', emoji: '🎂' },
-    { id: 'wedding', name: 'Weddings', emoji: '💒' },
-    { id: 'corporate', name: 'Corporate', emoji: '🏢' },
-    { id: 'festival', name: 'Festivals', emoji: '🎊' }
+    { id: "all", name: "All Events", emoji: "🎉" },
+    { id: "birthday", name: "Birthdays", emoji: "🎂" },
+    { id: "wedding", name: "Weddings", emoji: "💒" },
+    { id: "corporate", name: "Corporate", emoji: "🏢" },
+    { id: "festival", name: "Festivals", emoji: "🎊" },
   ];
 
-  const filteredImages = currentCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === currentCategory);
+  const filteredImages =
+    currentCategory === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === currentCategory);
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -140,18 +111,21 @@ const GallerySection: React.FC = () => {
 
   const prevImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage - 1 + filteredImages.length) % filteredImages.length);
+      setSelectedImage(
+        (selectedImage - 1 + filteredImages.length) % filteredImages.length
+      );
     }
   };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Gallery grid animation
-      gsap.fromTo(".gallery-item",
+      gsap.fromTo(
+        ".gallery-item",
         {
           opacity: 0,
           scale: 0.8,
-          y: 50
+          y: 50,
         },
         {
           opacity: 1,
@@ -164,60 +138,62 @@ const GallerySection: React.FC = () => {
             trigger: galleryRef.current,
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
 
       // Hover animations
-      const galleryItems = document.querySelectorAll('.gallery-item');
+      const galleryItems = document.querySelectorAll(".gallery-item");
       galleryItems.forEach((item) => {
         const tl = gsap.timeline({ paused: true });
         tl.to(item, {
           scale: 1.05,
           y: -10,
           duration: 0.3,
-          ease: "power2.out"
+          ease: "power2.out",
         });
 
-        item.addEventListener('mouseenter', () => tl.play());
-        item.addEventListener('mouseleave', () => tl.reverse());
+        item.addEventListener("mouseenter", () => tl.play());
+        item.addEventListener("mouseleave", () => tl.reverse());
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, [filteredImages]);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 relative overflow-hidden"
+    >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 text-4xl opacity-20"
-          animate={{ 
+          animate={{
             rotate: [0, 360],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         >
           📸
         </motion.div>
         <motion.div
           className="absolute bottom-20 right-20 text-5xl opacity-15"
-          animate={{ 
+          animate={{
             y: [0, -30, 0],
-            rotate: [0, 15, 0]
+            rotate: [0, 15, 0],
           }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
+          transition={{
+            duration: 6,
+            repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
           }}
         >
           🌟
@@ -254,8 +230,8 @@ const GallerySection: React.FC = () => {
               onClick={() => setCurrentCategory(category.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                 currentCategory === category.id
-                  ? 'bg-pink-500 text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-700 hover:bg-pink-100 hover:text-pink-600'
+                  ? "bg-pink-500 text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 hover:bg-pink-100 hover:text-pink-600"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -269,17 +245,17 @@ const GallerySection: React.FC = () => {
         {/* Gallery Grid */}
         <div
           ref={galleryRef}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[385px]"
         >
           <AnimatePresence>
             {filteredImages.map((image, index) => (
               <motion.div
                 key={image.id}
-                className={`gallery-item relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg
-                  ${image.size === 'large' ? 'md:col-span-2' : ''}
-                  ${image.size === 'tall' ? 'md:row-span-2' : ''}
-                  ${image.size === 'small' ? 'row-span-1' : ''}
-                  ${image.size === 'medium' ? 'md:row-span-1' : ''}
+                className={`gallery-item relative group cursor-pointer overflow-hidden shadow-lg 
+                  ${image.size === "large" ? "md:col-span-2" : ""}
+                  ${image.size === "tall" ? "md:row-span-2" : ""}
+                  ${image.size === "small" ? "row-span-1" : ""}
+                  ${image.size === "medium" ? "md:row-span-1" : ""}
                 `}
                 onClick={() => openLightbox(index)}
                 layout
@@ -292,46 +268,21 @@ const GallerySection: React.FC = () => {
                 <img
                   src={image.src}
                   alt={image.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-100 transition-transform duration-500"
                 />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="font-bold text-lg mb-1 line-clamp-1">{image.title}</h3>
-                  <p className="text-sm text-white/90 line-clamp-2">{image.description}</p>
-                </div>
-                
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-semibold capitalize">
-                    {image.category}
-                  </span>
-                </div>
-                
-                {/* Heart Icon */}
-                <motion.div
-                  className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Heart className="w-5 h-5 text-white" />
-                </motion.div>
-                
+
                 {/* Floating Sparkle */}
                 <motion.div
                   className="absolute -top-2 -right-2 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  animate={{ 
+                  animate={{
                     rotate: [0, 15, 0, -15, 0],
-                    scale: [1, 1.2, 1]
+                    scale: [1, 1.2, 1],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
                     ease: "easeInOut",
-                    delay: index * 0.2
+                    delay: index * 0.2,
                   }}
                 >
                   ✨
@@ -350,6 +301,16 @@ const GallerySection: React.FC = () => {
           viewport={{ once: true }}
         >
           <motion.button
+            onClick={() => {
+              console.log("Button clicked!");
+              console.log("Current location:", window.location.href);
+              try {
+                navigate("/gallery");
+                console.log("Navigation called successfully");
+              } catch (error) {
+                console.error("Navigation error:", error);
+              }
+            }}
             className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-bold hover:from-pink-600 hover:to-purple-600 transition-all duration-300 shadow-lg"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -370,7 +331,7 @@ const GallerySection: React.FC = () => {
             { number: "500+", label: "Events Captured", icon: "📸" },
             { number: "1000+", label: "Happy Moments", icon: "😊" },
             { number: "50+", label: "Different Themes", icon: "🎨" },
-            { number: "5★", label: "Average Rating", icon: "⭐" }
+            { number: "5★", label: "Average Rating", icon: "⭐" },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -379,7 +340,9 @@ const GallerySection: React.FC = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-1">{stat.number}</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-1">
+                {stat.number}
+              </h3>
               <p className="text-gray-600 text-sm">{stat.label}</p>
             </motion.div>
           ))}
@@ -398,12 +361,13 @@ const GallerySection: React.FC = () => {
               📱 Follow Us on Social Media
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Get daily inspiration and behind-the-scenes content from our latest events
+              Get daily inspiration and behind-the-scenes content from our
+              latest events
             </p>
           </div>
-          
+
           <div className="grid grid-cols-3 md:grid-cols-6 gap-2 max-w-2xl mx-auto mb-6">
-            {filteredImages.slice(0, 6).map((image, index) => (
+            {filteredImages.slice(0, 6).map((image) => (
               <motion.div
                 key={`social-${image.id}`}
                 className="aspect-square rounded-lg overflow-hidden shadow-md"
@@ -418,7 +382,7 @@ const GallerySection: React.FC = () => {
               </motion.div>
             ))}
           </div>
-          
+
           <div className="flex justify-center space-x-4">
             <motion.a
               href="#"
@@ -469,7 +433,7 @@ const GallerySection: React.FC = () => {
                     {filteredImages[selectedImage].description}
                   </p>
                 </div>
-                
+
                 {/* Navigation */}
                 <button
                   onClick={prevImage}
@@ -483,7 +447,7 @@ const GallerySection: React.FC = () => {
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
-                
+
                 {/* Close button */}
                 <button
                   onClick={closeLightbox}
