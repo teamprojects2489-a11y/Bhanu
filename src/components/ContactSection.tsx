@@ -31,7 +31,7 @@ Email: ${formData.email}%0A
 Event Type: ${formData.eventType}%0A
 Message: ${formData.message}`;
 
- const vendorNumber = "918897399259";
+ const vendorNumber = "918310124421";
   const whatsappUrl = `https://wa.me/${vendorNumber}?text=${message}`;
 
     // Simulate form submission
@@ -103,7 +103,7 @@ Message: ${formData.message}`;
                 </div>
                 <div>
                   <p className="text-lg font-semibold">Phone</p>
-                  <p className="text-blue-200">+91 9876543210</p>
+                  <p className="text-blue-200">+91 8310124421</p>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ Message: ${formData.message}`;
                 </div>
                 <div>
                   <p className="text-lg font-semibold">Location</p>
-                  <p className="text-indigo-200">Mumbai, Maharashtra, India</p>
+                  <p className="text-indigo-200">Banglore, KA, India</p>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ Message: ${formData.message}`;
             {/* Quick Contact Buttons */}
             <div className="mt-10 space-y-4">
               <a
-                href="https://wa.me/919876543210?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
+                href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-green-500 hover:bg-green-600 text-center py-3 px-6 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"

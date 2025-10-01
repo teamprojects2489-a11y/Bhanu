@@ -1,25 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const ActivitiesSection: React.FC = () => {
-  const activities = [
-    { name: "Face Painting", icon: "🎨", color: "from-red-400 to-pink-500" },
-    { name: "Caricatures", icon: "✏️", color: "from-blue-400 to-cyan-500" },
-    { name: "Bracelet Making", icon: "📿", color: "from-purple-400 to-indigo-500" },
-    { name: "Key Chain Making", icon: "🔑", color: "from-yellow-400 to-orange-500" },
-    { name: "Jewelry", icon: "💎", color: "from-pink-400 to-rose-500" },
-    { name: "Pebble Art", icon: "🎪", color: "from-green-400 to-teal-500" },
-    { name: "Hair Braiding", icon: "💇", color: "from-purple-400 to-pink-500" },
-    { name: "Pot Making", icon: "🏺", color: "from-orange-400 to-red-500" },
-    { name: "Canvas Painting", icon: "🖼️", color: "from-blue-400 to-purple-500" },
-    { name: "Clay Making", icon: "🏺", color: "from-amber-400 to-orange-500" },
-    { name: "Sand Activity", icon: "🏖️", color: "from-yellow-400 to-amber-500" },
-    { name: "Mehandi", icon: "✋", color: "from-green-400 to-emerald-500" },
-    { name: "Cartoon Characters", icon: "🎭", color: "from-indigo-400 to-purple-500" },
-    { name: "Bottle Art", icon: "🍾", color: "from-cyan-400 to-blue-500" },
-    { name: "Paper Craft", icon: "📄", color: "from-pink-400 to-purple-500" },
-    { name: "Nail Art", icon: "💅", color: "from-rose-400 to-pink-500" }
+  const navigate = useNavigate();
+     const activities = [
+    { name: "Face Painting", icon: "🎨", color: "from-red-400 to-pink-500", slug: "face-painting" },
+    { name: "Caricatures", icon: "✏️", color: "from-blue-400 to-cyan-500", slug: "caricatures" },
+    { name: "Bracelet Making", icon: "📿", color: "from-purple-400 to-indigo-500", slug: "bracelet-making" },
+    { name: "Key Chain Making", icon: "🔑", color: "from-yellow-400 to-orange-500", slug: "key-chain-making" },
+    { name: "Jewelry", icon: "💎", color: "from-pink-400 to-rose-500", slug: "jewelry" },
+    { name: "Pebble Art", icon: "🎪", color: "from-green-400 to-teal-500", slug: "pebble-art" },
+    { name: "Hair Braiding", icon: "💇", color: "from-purple-400 to-pink-500", slug: "hair-braiding" },
+    { name: "Pot Making", icon: "🏺", color: "from-orange-400 to-red-500", slug: "pot-making" },
+    { name: "Canvas Painting", icon: "🖼️", color: "from-blue-400 to-purple-500", slug: "canvas-painting" },
+    { name: "Clay Making", icon: "🏺", color: "from-amber-400 to-orange-500", slug: "clay-making" },
+    { name: "Sand Activity", icon: "🏖️", color: "from-yellow-400 to-amber-500", slug: "sand-activity" },
+    { name: "Mehandi", icon: "✋", color: "from-green-400 to-emerald-500", slug: "mehandi" },
+    { name: "Cartoon Characters", icon: "🎭", color: "from-indigo-400 to-purple-500", slug: "cartoon-characters" },
+    { name: "Bottle Art", icon: "🍾", color: "from-cyan-400 to-blue-500", slug: "bottle-art" },
+    { name: "Paper Craft", icon: "📄", color: "from-pink-400 to-purple-500", slug: "paper-craft" },
+    { name: "Nail Art", icon: "💅", color: "from-rose-400 to-pink-500", slug: "nail-art" }
   ];
+
 
   return (
     <section id="activities" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -54,6 +57,7 @@ const ActivitiesSection: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.05 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
+              onClick={() => navigate(`/activities/${activity.slug}`)}
             >
               <div className={`bg-gradient-to-br ${activity.color} p-6 rounded-2xl shadow-lg transform transition-all duration-300 group-hover:shadow-xl`}>
                 <div className="text-center text-white">

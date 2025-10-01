@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { Phone, Whatsapp } from 'lucide-react';
 const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Home', path: '/' },
@@ -143,7 +143,22 @@ const Footer: React.FC = () => {
               <p>© 2025 SB EVENTS. All Rights Reserved.</p>
             </div>
             <div>
-              <p>Website Designed by <span className="font-semibold">Lilif and Team</span></p>
+              <p>Website Designed by
+                 <span className="font-semibold"> <a
+    href="https://www.instagram.com/software_brathukullu/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-pink-300 hover:underline"
+  >
+    Software_brathukullu
+  </a></span></p>
+     <div className="flex justify-center my-2">      
+<p className="flex items-center gap-3">
+  <Phone className="w-5 h-5 text-green-400" />
+  <a href="tel:8897399259" className="hover:underline text-yellow-200">8897399259</a>
+
+</p>
+</div> 
             </div>
           </motion.div>
         </div>
