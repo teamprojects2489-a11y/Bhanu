@@ -83,7 +83,7 @@ const CTASection: React.FC = () => {
             </motion.a>
 
             <motion.a
-              href="mailto:contact@bhanuevents.com?subject=Event%20Planning%20Inquiry"
+              href="mailto:contact.sbevents9@gmail.com?subject=Event%20Planning%20Inquiry"
               className="bg-gray-600 hover:bg-gray-500 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-3 transition-all duration-300 shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

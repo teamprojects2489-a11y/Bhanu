@@ -15,8 +15,8 @@ const FAQSection: React.FC = () => {
       answer: "Our packages include venue decoration, activity coordination, entertainment arrangements, vendor management, timeline planning, and on-site event coordination. We customize each package based on your specific needs and budget requirements."
     },
     {
-      question: "Do you provide services outside Mumbai?",
-      answer: "Yes, we provide services in Mumbai and surrounding areas within a 100km radius. For locations outside our standard service area, additional travel charges may apply. We're happy to discuss destination events on a case-by-case basis."
+      question: "Do you provide services outside Banglore?",
+      answer: "Yes, we provide services in Banglore and surrounding areas. For locations outside our standard service area, additional travel charges may apply. We're happy to discuss destination events on a case-by-case basis."
     },
     {
       question: "Can you work within my budget?",
@@ -41,8 +41,13 @@ const FAQSection: React.FC = () => {
   ];
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+   setOpenIndex(openIndex === index ? null : index);
+    
   };
+  console.log('====================================');
+  console.log(openIndex);
+  console.log('====================================');
+  
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
@@ -183,7 +188,7 @@ const FAQSection: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+918310124421"
                 className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -191,7 +196,7 @@ const FAQSection: React.FC = () => {
                 📞 Call Us Now
               </motion.a>
               <motion.a
-                href="https://wa.me/919876543210?text=Hi%20Bhanu%20Events%2C%20I%20have%20some%20questions%20about%20your%20services"
+                href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I%20have%20some%20questions%20about%20your%20services"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-center"

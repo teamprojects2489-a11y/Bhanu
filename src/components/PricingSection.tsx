@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Check, Star, Crown, Gift, Sparkles } from 'lucide-react';
 
 const PricingSection: React.FC = () => {
-  const [selectedPlan, setSelectedPlan] = useState('premium');
 
   const pricingPlans = [
     {
@@ -210,18 +209,7 @@ const PricingSection: React.FC = () => {
                     ))}
                   </ul>
 
-                  <motion.button
-                    onClick={() => setSelectedPlan(plan.id)}
-                    className={`w-full py-4 px-6 rounded-full font-bold text-lg transition-all duration-300 ${
-                      selectedPlan === plan.id
-                        ? `bg-gradient-to-r ${plan.color} text-white shadow-lg`
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {selectedPlan === plan.id ? '✅ Selected' : 'Choose This Plan'}
-                  </motion.button>
+           
                 </div>
               </div>
 

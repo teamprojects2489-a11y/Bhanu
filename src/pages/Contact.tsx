@@ -14,8 +14,8 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["contact@bhanuevents.com", "info@bhanuevents.com"],
-      action: "mailto:contact@bhanuevents.com"
+      details: ["contact.sbevents9@gmail.com", "info@bhanuevents.com"],
+      action: "mailto:contact.sbevents9@gmail.com"
     },
     {
       icon: <MapPin className="w-6 h-6" />,

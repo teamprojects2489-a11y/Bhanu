@@ -12,10 +12,8 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "Twitter" },
     { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" }
+    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/sri__lekha__na/", label: "Instagram" }
   ];
 
   return (
@@ -37,18 +35,21 @@ const Footer: React.FC = () => {
           <p className="text-lg text-sky-200 mb-8 max-w-2xl mx-auto">
             From concept to celebration, we've got you covered. Partner with 
            SB EVENTSfor world-class event planning and management solutions.
-          </p>
-          <motion.a
-            href="tel:+919876543210"
-            className="inline-flex items-center bg-sky-400 hover:bg-sky-300 text-sky-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Book a Consultation
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.a>
+          </p>         
+            <motion.a
+              href="https://wa.me/918310124421?text=Hi%20we%20are%20interested%20to%20know%20more%20details%20more%20about%20Sb%20events%20please%20Give%20us%20time"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-sky-400 hover:bg-sky-300 text-sky-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Book a Consultation
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.a>
+          
         </motion.div>
 
         {/* Main Footer Content */}
@@ -84,6 +85,7 @@ const Footer: React.FC = () => {
               <motion.a
                 key={index}
                 href={social.href}
+                target='_blank'
                 className="bg-red-950 hover:bg-red-800 text-yellow-300 p-3 rounded-full transition-all duration-300 border border-yellow-600/30"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -122,10 +124,10 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <a
-              href="mailto:contact@bhanuevents.com"
+              href="mailto:contact.sbevents9@gmail.com"
               className="text-yellow-200 hover:text-yellow-300 font-medium text-lg transition-colors duration-300"
             >
-              contact@bhanuevents.com
+              contact.sbevents9@gmail.com
             </a>
           </motion.div>
 

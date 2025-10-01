@@ -399,7 +399,7 @@ const ClientsCarousel: React.FC = () => {
                 📞 Let's Talk Business
               </motion.a>
               <motion.a
-                href="mailto:contact@bhanuevents.com"
+                href="mailto:contact.sbevents9@gmail.com"
                 className="bg-white text-purple-600 border-2 border-purple-500 px-8 py-4 rounded-full font-bold hover:bg-purple-50 transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

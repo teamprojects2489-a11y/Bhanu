@@ -113,7 +113,7 @@ Message: ${formData.message}`;
                 </div>
                 <div>
                   <p className="text-lg font-semibold">Email</p>
-                  <p className="text-purple-200">contact@bhanuevents.com</p>
+                  <p className="text-purple-200">contact.sbevents9@gmail.com</p>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ Message: ${formData.message}`;
               </a>
               
               <a
-                href="mailto:contact@bhanuevents.com?subject=Bhanu%20Events%20Inquiry"
+                href="mailto:?subject=Bhanu%20Events%20Inquiry"
                 className="block w-full bg-blue-500 hover:bg-blue-600 text-center py-3 px-6 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 ✉️ Send Email
