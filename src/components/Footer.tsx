@@ -124,10 +124,10 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <a
-              href="mailto:contact.sbevents9@gmail.com"
+              href="mailto: srilekhanac@gmail.com"
               className="text-yellow-200 hover:text-yellow-300 font-medium text-lg transition-colors duration-300"
             >
-              contact.sbevents9@gmail.com
+              srilekhanac@gmail.com
             </a>
           </motion.div>
 

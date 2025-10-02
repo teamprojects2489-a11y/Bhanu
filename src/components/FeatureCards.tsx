@@ -19,7 +19,7 @@ const FeatureCards: React.FC = () => {
       description: "Balloons, flowers, ribbons, fairy lights & more",
       buttonText: "Explore Decorations",
       gradient: "from-pink-400 via-rose-400 to-pink-500",
-      delay: 0
+
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const FeatureCards: React.FC = () => {
       description: "Face painting, crafts, games & entertainment",
       buttonText: "See Activities",
       gradient: "from-blue-400 via-cyan-400 to-blue-500",
-      delay: 0.2
+
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const FeatureCards: React.FC = () => {
       description: "Photo booths, LED boards, stage backdrops",
       buttonText: "More Features",
       gradient: "from-purple-400 via-indigo-400 to-purple-500",
-      delay: 0.4
+  
     }
   ];
 
@@ -234,7 +234,7 @@ const FeatureCards: React.FC = () => {
                   duration: 3, 
                   repeat: Infinity, 
                   ease: "easeInOut",
-                  delay: feature.delay
+                 
                 }}
               >
                 ✨
@@ -250,7 +250,7 @@ const FeatureCards: React.FC = () => {
                   duration: 2, 
                   repeat: Infinity, 
                   ease: "easeInOut",
-                  delay: feature.delay + 1
+                
                 }}
               >
                 🌟

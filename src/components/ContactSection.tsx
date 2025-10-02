@@ -113,7 +113,7 @@ Message: ${formData.message}`;
                 </div>
                 <div>
                   <p className="text-lg font-semibold">Email</p>
-                  <p className="text-purple-200">contact.sbevents9@gmail.com</p>
+                  <p className="text-purple-200"> srilekhanac@gmail.com</p>
                 </div>
               </div>
 

@@ -29,7 +29,7 @@ const Header: React.FC = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-sky-900/95 backdrop-blur-md shadow-lg"
+          ? "bg-sky-950/95 backdrop-blur-lg shadow-2xl"
           : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -45,22 +45,19 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              {/* <div className="text-2xl">🎉</div> */}
-              <img src={logo} alt="Logo" className="w-8 h-8" />
+              <img src={logo} alt="Logo" className="w-10 h-10 drop-shadow-lg" />
               <div>
                 <h1
-                  className={`text-xl md:text-2xl font-bold ${
-                    isScrolled ? "text-yellow-300" : "text-yellow-300"
-                  }`}
+                  className={`text-xl md:text-2xl font-extrabold tracking-wide bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent`}
                 >
                   SB EVENTS
                 </h1>
                 <p
-                  className={`text-xs ${
-                    isScrolled ? "text-yellow-200" : "text-yellow-200"
+                  className={`text-xs tracking-wide ${
+                    isScrolled ? "text-yellow-200" : "text-yellow-200/90"
                   }`}
                 >
-                  Where Joy Meets the Sky
+                  Where Joy Meets the Sky ✨
                 </p>
               </div>
             </Link>
@@ -72,13 +69,13 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-colors duration-300 hover:text-orange-500 ${
-                  location.pathname === item.path
-                    ? "text-yellow-300"
-                    : isScrolled
-                    ? "text-yellow-200"
-                    : "text-yellow-200"
-                }`}
+                className={`
+                  relative font-semibold text-lg tracking-wide
+                  transition-all duration-300
+                  ${location.pathname === item.path ? "text-pink-400" : "text-yellow-200"}
+                  hover:text-orange-400
+                  after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-gradient-to-r from-pink-500 to-orange-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full
+                `}
               >
                 {item.name}
               </Link>
@@ -88,15 +85,17 @@ const Header: React.FC = () => {
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+919876543210"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                isScrolled
-                  ? "bg-yellow-300 text-white-600 hover:bg-yellow-300"
-                  : "bg-yellow-300/80 text-white-600 hover:bg-yellow-300"
-              }`}
+              href="tel:+918310124421"
+              className={`
+                flex items-center space-x-2 px-5 py-2 rounded-full font-semibold shadow-lg transform transition-all duration-300
+                ${isScrolled
+                  ? "bg-gradient-to-r from-pink-600 to-red-400 text-white hover:scale-105 hover:shadow-pink-500/50"
+                  : "bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:scale-105 hover:shadow-yellow-400/50"
+                }
+              `}
             >
-              <Phone size={16} />
-              <span className="text-sm font-medium">Call Now</span>
+              <Phone size={18} className="animate-pulse" />
+              <span className="text-sm tracking-wide">Call Now</span>
             </a>
           </div>
 
@@ -107,7 +106,7 @@ const Header: React.FC = () => {
               isScrolled ? "text-yellow-300" : "text-yellow-300"
             }`}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
 
@@ -118,30 +117,30 @@ const Header: React.FC = () => {
           }`}
           initial={false}
           animate={{ maxHeight: isMenuOpen ? 384 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4 }}
         >
-          <div className="py-4 space-y-2 bg-white/95 backdrop-blur-md rounded-lg mt-2">
+          <div className="py-4 space-y-2 bg-gradient-to-br from-sky-900 via-purple-900 to-indigo-900 text-white backdrop-blur-lg rounded-xl mt-2 shadow-xl">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block w-full text-left px-4 py-3 hover:bg-gray-100 transition-colors duration-300 ${
+                className={`block w-full text-left px-6 py-3 rounded-lg transition-all duration-300 ${
                   location.pathname === item.path
-                    ? "text-orange-500 bg-orange-50"
-                    : "text-gray-700"
+                    ? "bg-gradient-to-r from-pink-500 to-orange-400 text-white font-semibold"
+                    : "hover:bg-white/10 text-yellow-200"
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="px-4 py-2 border-t border-gray-200">
+            <div className="px-6 py-3 border-t border-white/20">
               <a
-                href="tel:+919876543210"
-                className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
+                href="tel:+918310124421"
+                className="flex items-center space-x-2 font-semibold text-pink-300 hover:text-pink-400 transition-colors"
               >
-                <Phone size={16} />
-                <span>+91 9876543210</span>
+                <Phone size={16} className="animate-pulse" />
+                <span>+91 8310124421</span>
               </a>
             </div>
           </div>

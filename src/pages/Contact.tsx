@@ -14,13 +14,13 @@ const Contact: React.FC = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["contact.sbevents9@gmail.com", "info@bhanuevents.com"],
-      action: "mailto:contact.sbevents9@gmail.com"
+      details: [" srilekhanac@gmail.com"],
+      action: "mailto: srilekhanac@gmail.com"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Address",
-      details: ["Mumbai, Maharashtra", "India - 400001"],
+      details: ["Banglore, KA", "India"],
       action: null
     },
     {
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                 <span>Call Now</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/8310124421?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
+                href="https://wa.me/8310124421?text=Hi%20SB%20Events%2C%20I'm%20interested%20in%20your%20services!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"
