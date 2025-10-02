@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { KeychainMakingImages } from '../../assets/index';
 
 const KeyChainMaking: React.FC = () => {
+  const [bgImg, setBgImg] = useState<string | null>(null);
+
   return (
     <section className="py-20 min-h-screen bg-gradient-to-br from-yellow-100 via-amber-100 to-orange-100">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
+        {/* Dynamic background image on hover */}
+        {bgImg && (
+          <img
+            src={bgImg}
+            alt="Background"
+            className="fixed inset-0 w-full h-full object-cover z-0 transition-all duration-500 pointer-events-none"
+            style={{ top: 0, left: 0 }}
+          />
+        )}
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-center text-amber-700 mb-4 tracking-tight drop-shadow"
+          className="text-4xl md:text-5xl font-extrabold text-center text-amber-700 mb-4 tracking-tight drop-shadow relative z-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           Key Chain Making Gallery
         </motion.h2>
-        <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+        <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto relative z-10">
           Discover our fun and creative key chain making activities!
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto relative z-10">
           {KeychainMakingImages.map((img: string, idx: number) => (
             <motion.div
               key={idx}
@@ -26,7 +37,9 @@ const KeyChainMaking: React.FC = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: idx * 0.09 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px 0 rgba(251, 191, 36, 0.25)" }}
+              whileHover={{ scale: 1.04 }}
+              onMouseEnter={() => setBgImg(img)}
+              onMouseLeave={() => setBgImg(null)}
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-lg border border-white/30 transition-all duration-300 group-hover:shadow-amber-200">
                 <img

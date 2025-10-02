@@ -14,7 +14,6 @@ const ActivitiesSection: React.FC = () => {
     { name: "Hair Braiding", icon: "💇", color: "from-purple-400 to-pink-500", slug: "hair-braiding" },
     { name: "Pot Making", icon: "🏺", color: "from-orange-400 to-red-500", slug: "pot-making" },
     { name: "Canvas Painting", icon: "🖼️", color: "from-blue-400 to-purple-500", slug: "canvas-painting" },
-    { name: "Clay Making", icon: "🏺", color: "from-amber-400 to-orange-500", slug: "clay-making" },
     { name: "Sand Activity", icon: "🏖️", color: "from-yellow-400 to-amber-500", slug: "sand-activity" },
     { name: "Mehandi", icon: "✋", color: "from-green-400 to-emerald-500", slug: "mehandi" },
     { name: "Cartoon Characters", icon: "🎭", color: "from-indigo-400 to-purple-500", slug: "cartoon-characters" },

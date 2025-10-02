@@ -18,6 +18,12 @@ import JewelryMaking from "./components/Funactivities/Jewellarymaking";
 import PebblesArt from "./components/Funactivities/PebblesArt";
 import HairBraiding from "./components/Funactivities/HairBraidingimages";
 import PotMaking from "./components/Funactivities/PotMaking";
+import CanvasPainting from "./components/Funactivities/Canvaspainting";
+import CartoonCharacters from "./components/Funactivities/CartoonCharacters";
+import PaperCraft from "./components/Funactivities/PaperCraft";
+import NailArt from "./components/Funactivities/NailArt";
+import Mehandi from "./components/Funactivities/Mehandi";
+import SandArt from "./components/Funactivities/Sandart";
 function App() {
   return (
     <Router>
@@ -38,6 +44,12 @@ function App() {
           <Route path="/activities/pebble-art" element={<PebblesArt/>} />
           <Route path="/activities/hair-braiding" element={<HairBraiding />} />
           <Route path="/activities/pot-making" element={<PotMaking/>} />  
+          <Route path="/activities/canvas-painting" element={<CanvasPainting/>} />
+          <Route path="/activities/cartoon-characters" element={<CartoonCharacters/>} />  
+          <Route path="/activities/paper-craft" element={<PaperCraft/>} />  
+          <Route path="/activities/nail-art" element={<NailArt/>} />
+          <Route path ='/activities/mehandi' element={<Mehandi/>}/>
+          <Route path="/activities/sand-activity" element={<SandArt/>} />
         </Routes>
         <Footer />
         <WhatsAppButton />

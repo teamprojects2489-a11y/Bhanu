@@ -150,7 +150,114 @@ import pt8 from './potmaking/pt8.jpg';
 import pt9 from './potmaking/pt9.jpg';
 import pt10 from './potmaking/pt10.jpg';
 import pt12 from './potmaking/p12.jpg'; 
+//==canvas painting===//
+import c1 from './canvaspainting/c1.jpg';
+import c2 from './canvaspainting/c2.jpg';
+import c3 from './canvaspainting/c3.jpg';
+import c4 from './canvaspainting/c4.jpg';
+import c5 from './canvaspainting/c5.jpg';
+import c6 from './canvaspainting/c6.jpg';
+import c7 from './canvaspainting/c7.jpg';
+import c8 from './canvaspainting/c8.jpg';
+import c9 from './canvaspainting/c9.jpg';
+import c10 from './canvaspainting/c10.jpg';
+import c11 from './canvaspainting/c11.jpg';
+import c12 from './canvaspainting/c12.jpg';
+import c16 from './canvaspainting/c11.webp';
+import c13 from './canvaspainting/c13.jpg';
+import c14 from './canvaspainting/c14.jpg';
+import c15 from './canvaspainting/c15.webp';  
+import c17 from './canvaspainting/c16.webp';
+//=====cartoon characters=====//
+import cr1 from './cartooncharacters/cr1.jpg';
+import cr2 from './cartooncharacters/cr2.jpg';
+import cr3 from './cartooncharacters/cr3.jpg';
+import cr4 from './cartooncharacters/cr4.jpg';
+import cr5 from './cartooncharacters/cr5.jpg';
+import cr6 from './cartooncharacters/cr6.jpg';
+import cr7 from './cartooncharacters/cr7.jpg';
+import cr8 from './cartooncharacters/cr8.jpg';
+import cr9 from './cartooncharacters/cr9.jpg';
+import cr10 from './cartooncharacters/cr10.jpg';
+import cr11 from './cartooncharacters/cr11.jpg';
+import cr12 from './cartooncharacters/cr12.jpg';
+import cr13 from './cartooncharacters/cr13.jpg';
+import cr14 from './cartooncharacters/cr14.jpg';
 
+
+//===paper craft=====//
+import pr1 from './papercraft/pr1.jpg';
+import pr2 from './papercraft/pr2.jpg';
+import pr4 from './papercraft/pr4.png';
+import pr5 from './papercraft/pr5.jpg';
+import pr6 from './papercraft/pr6.webp';
+import pr7 from './papercraft/pr7.jpg';
+import pr8 from './papercraft/pr8.jpg';
+import pr9 from './papercraft/pr9.jpg';
+import pr10 from './papercraft/pr10.jpg';
+import pr11 from './papercraft/pr11.jpg';
+import pr12 from './papercraft/pr12.jpg';
+import pr13 from './papercraft/pr14.jpg';
+//==== nail art=====//
+import n1 from './nail/n1.jpg';
+import n2 from './nail/n2.jpg';
+import n3 from './nail/n3.jpg';
+import n4 from './nail/n4.jpg';
+import n5 from './nail/n5.jpg';
+import n6 from './nail/n6.jpg';
+import n8 from './nail/n8.jpg';
+import n9 from './nail/n9.jpg';
+import n10 from './nail/n10.png';
+import n11 from './nail/n11.jpeg';
+import n12 from './nail/n12.jpg';
+import n13 from './nail/n13.jpg';
+import n7 from './nail/n7.jpg';
+import n14 from './nail/n14.jpg';
+import n16 from './nail/n16.jpg';
+
+//==mehandi=====//
+import md1 from './mehandi/md1.jpg';
+import md2 from './mehandi/md2.jpg';
+import md3 from './mehandi/md3.jpg';
+import md4 from './mehandi/md4.jpg';
+import md5 from './mehandi/md5.jpg';
+import md6 from './mehandi/md6.jpg';
+import md7 from './mehandi/md7.jpg';
+import md8 from './mehandi/md8.jpg';
+import md9 from './mehandi/md9.jpg';
+//==sand art=====//
+
+import sd2 from './sandart/sd2.jpg';
+import sd3 from './sandart/sd3.webp';
+import sd4 from './sandart/sd4.jpg';
+import sd from './sandart/sd.jpg';
+
+export const SandArtImages = [
+  sd, sd2, sd3, sd4
+];
+
+export const MehandiImages = [
+  md1, md2, md3, md4,
+  md5, md6, md7, md8, md9
+];
+export const NailArtImages = [
+  n1, n2, n3, n4,
+  n5, n6, n8,
+  n9, n10, n11, n12, n13,n7,n14,n16
+];
+export const PaperCraftImages = [
+  pr1, pr2, pr4, pr5,
+  pr6, pr7, pr8, pr9,
+  pr10, pr11, pr12, pr13
+];
+export const CartoonCharacterImages = [
+  cr1, cr2, cr3, cr4, cr5, cr6,
+  cr7, cr8, cr9, cr10, cr11, cr12, cr13, cr14
+];
+export const CanvasPaintingImages = [
+  c1, c2, c3, c4, c5, c6,
+  c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17
+];
 export const PotMakingImages = [
   pt1, pt2, pt3, pt4, pt5, pt6,
   pt7, pt8, pt9, pt10,  pt12
