@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
            SB EVENTSfor world-class event planning and management solutions.
           </p>         
             <motion.a
-              href="https://wa.me/918310124421?text=Hi%20we%20are%20interested%20to%20know%20more%20details%20more%20about%20Sb%20events%20please%20Give%20us%20time"
+              href="https://wa.me/918310124421?text=Hi%20SB%20Events%2C%20please%20share%20more%20details%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-sky-400 hover:bg-sky-300 text-sky-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
