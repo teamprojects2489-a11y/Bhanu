@@ -24,6 +24,11 @@ import PaperCraft from "./components/Funactivities/PaperCraft";
 import NailArt from "./components/Funactivities/NailArt";
 import Mehandi from "./components/Funactivities/Mehandi";
 import SandArt from "./components/Funactivities/Sandart";
+import FlowerDecoration from "./components/Docarion/FlowerDecoration";
+import EntryArchieves from "./components/Docarion/EntryArcheves";
+import RibbonDecorations from "./components/Docarion/Ribbon";
+import Lightdecors from "./components/Docarion/LightDecoration";
+import StagebackDrops from "./components/Docarion/Stagebackgrops";
 function App() {
   return (
     <Router>
@@ -50,6 +55,11 @@ function App() {
           <Route path="/activities/nail-art" element={<NailArt/>} />
           <Route path ='/activities/mehandi' element={<Mehandi/>}/>
           <Route path="/activities/sand-activity" element={<SandArt/>} />
+          <Route path="/decorations/flowers" element={<FlowerDecoration />} />
+          <Route path="/decorations/entry-arches" element={<EntryArchieves />} />
+          <Route path="/decorations/ribbons" element={<RibbonDecorations />} />
+          <Route path="/decorations/lights" element={<Lightdecors />} />
+          <Route path="/decorations/stage-backdrop" element={<StagebackDrops />} /> 
         </Routes>
         <Footer />
         <WhatsAppButton />

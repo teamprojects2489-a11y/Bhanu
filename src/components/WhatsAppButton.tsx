@@ -8,7 +8,7 @@ const WhatsAppButton: React.FC = () => {
 
   const handleWhatsAppClick = () => {
     const message = "Hi SB EVENTS, I'm interested in your services! 🎉 I would like to know more"; 
-    const phoneNumber = "919876543210";
+    const phoneNumber = "918310124421";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
@@ -33,24 +33,9 @@ const WhatsAppButton: React.FC = () => {
       );
 
       // Continuous pulse animation
-      gsap.to(buttonRef.current, {
-        scale: 1.1,
-        duration: 1.5,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1
-      });
 
-      // Wiggle animation every 5 seconds
-      gsap.to(buttonRef.current, {
-        rotation: 15,
-        duration: 0.1,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: 5,
-        repeatDelay: 5
-      });
 
+     
     }, buttonRef);
 
     return () => ctx.revert();

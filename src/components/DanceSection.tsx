@@ -16,12 +16,6 @@ const DanceSection: React.FC = () => {
       thumbnail: "https://images.pexels.com/photos/3621225/pexels-photo-3621225.jpeg?auto=compress&cs=tinysrgb&w=800",
       type: "Western"
     },
-    {
-      id: 3,
-      title: "Bollywood Dance Show",
-      thumbnail: "https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=800",
-      type: "Bollywood"
-    }
   ];
 
   return (

@@ -2,86 +2,64 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
+const faqs = [
+  {
+    question: "How far in advance should I book your services?",
+    answer: "We recommend booking at least 2-4 weeks in advance for smaller events and 6-8 weeks for larger celebrations like weddings. This ensures we have adequate time for planning and securing the best vendors. However, we can accommodate last-minute requests based on availability."
+  },
+  {
+    question: "What's included in your event planning packages?",
+    answer: "Our packages include venue decoration, activity coordination, entertainment arrangements, vendor management, timeline planning, and on-site event coordination. We customize each package based on your specific needs and budget requirements."
+  },
+  {
+    question: "Do you provide services outside Banglore?",
+    answer: "Yes, we provide services in Banglore and surrounding areas. For locations outside our standard service area, additional travel charges may apply. We're happy to discuss destination events on a case-by-case basis."
+  },
+  {
+    question: "Can you work within my budget?",
+    answer: "Absolutely! We offer flexible packages and can customize our services to fit various budgets. During our initial consultation, we'll discuss your requirements and create a plan that maximizes value within your budget constraints."
+  },
+  {
+    question: "What types of events do you specialize in?",
+    answer: "We specialize in birthday parties, weddings, corporate events, anniversaries, baby showers, festivals, and family celebrations. Our team has experience with events ranging from intimate gatherings of 20 people to large celebrations with 500+ guests."
+  },
+  {
+    question: "Do you handle catering arrangements?",
+    answer: "While we don't provide catering directly, we coordinate with trusted catering partners and can help you select the perfect menu for your event. We handle all vendor coordination to ensure seamless service on your special day."
+  },
+  {
+    question: "What happens if there's bad weather on my event day?",
+    answer: "We always have contingency plans for outdoor events. This includes backup indoor venues, weather-resistant decorations, and flexible timing arrangements. We monitor weather forecasts closely and communicate any necessary changes well in advance."
+  },
+  {
+    question: "Can I make changes to my event plan after booking?",
+    answer: "Yes, we understand that plans can change. Minor modifications can usually be accommodated up to 1 week before the event. Major changes may require additional fees and are subject to vendor availability. We'll work with you to make necessary adjustments."
+  }
+];
+
 const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      question: "How far in advance should I book your services?",
-      answer: "We recommend booking at least 2-4 weeks in advance for smaller events and 6-8 weeks for larger celebrations like weddings. This ensures we have adequate time for planning and securing the best vendors. However, we can accommodate last-minute requests based on availability."
-    },
-    {
-      question: "What's included in your event planning packages?",
-      answer: "Our packages include venue decoration, activity coordination, entertainment arrangements, vendor management, timeline planning, and on-site event coordination. We customize each package based on your specific needs and budget requirements."
-    },
-    {
-      question: "Do you provide services outside Banglore?",
-      answer: "Yes, we provide services in Banglore and surrounding areas. For locations outside our standard service area, additional travel charges may apply. We're happy to discuss destination events on a case-by-case basis."
-    },
-    {
-      question: "Can you work within my budget?",
-      answer: "Absolutely! We offer flexible packages and can customize our services to fit various budgets. During our initial consultation, we'll discuss your requirements and create a plan that maximizes value within your budget constraints."
-    },
-    {
-      question: "What types of events do you specialize in?",
-      answer: "We specialize in birthday parties, weddings, corporate events, anniversaries, baby showers, festivals, and family celebrations. Our team has experience with events ranging from intimate gatherings of 20 people to large celebrations with 500+ guests."
-    },
-    {
-      question: "Do you handle catering arrangements?",
-      answer: "While we don't provide catering directly, we coordinate with trusted catering partners and can help you select the perfect menu for your event. We handle all vendor coordination to ensure seamless service on your special day."
-    },
-    {
-      question: "What happens if there's bad weather on my event day?",
-      answer: "We always have contingency plans for outdoor events. This includes backup indoor venues, weather-resistant decorations, and flexible timing arrangements. We monitor weather forecasts closely and communicate any necessary changes well in advance."
-    },
-    {
-      question: "Can I make changes to my event plan after booking?",
-      answer: "Yes, we understand that plans can change. Minor modifications can usually be accommodated up to 1 week before the event. Major changes may require additional fees and are subject to vendor availability. We'll work with you to make necessary adjustments."
-    }
-  ];
-
   const toggleFAQ = (index: number) => {
-   setOpenIndex(openIndex === index ? null : index);
-    
-  };
-  console.log('====================================');
-  console.log(openIndex);
-  console.log('====================================');
-  
+  setOpenIndex(prev => (prev === index ? null : index));
+};
 
+  console.log("openIndex ", openIndex);
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
+      
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-10 right-10 text-4xl opacity-15"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.3, 1]
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        >
-          ❓
-        </motion.div>
+          animate={{ rotate: [0, 360], scale: [1, 1.3, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        >❓</motion.div>
         <motion.div
           className="absolute bottom-20 left-20 text-5xl opacity-10"
-          animate={{ 
-            y: [0, -25, 0],
-            rotate: [0, 15, 0]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 3
-          }}
-        >
-          💡
-        </motion.div>
+          animate={{ y: [0, -25, 0], rotate: [0, 15, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        >💡</motion.div>
       </div>
 
       <div className="container mx-auto px-4">
@@ -112,6 +90,7 @@ const FAQSection: React.FC = () => {
             >
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-purple-100 hover:shadow-xl transition-all duration-300">
                 <button
+                  type="button"
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-purple-50 transition-all duration-300 group"
                 >
@@ -134,7 +113,7 @@ const FAQSection: React.FC = () => {
                     )}
                   </motion.div>
                 </button>
-                
+
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
@@ -146,9 +125,7 @@ const FAQSection: React.FC = () => {
                     >
                       <div className="px-8 pb-6">
                         <div className="w-full h-px bg-gradient-to-r from-purple-200 to-transparent mb-4"></div>
-                        <p className="text-gray-600 leading-relaxed font-medium">
-                          {faq.answer}
-                        </p>
+                        <p className="text-gray-600 leading-relaxed font-medium">{faq.answer}</p>
                       </div>
                     </motion.div>
                   )}
@@ -157,57 +134,6 @@ const FAQSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Still have questions CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-gradient-to-r from-yellow-100 via-orange-100 to-pink-100 rounded-3xl p-8 max-w-2xl mx-auto shadow-xl border border-yellow-200">
-            <motion.div
-              className="text-center mb-4"
-              animate={{ 
-                scale: [1, 1.05, 1],
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-            >
-              <span className="text-4xl">🤔</span>
-            </motion.div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-              Still have questions?
-            </h3>
-            <p className="text-gray-600 mb-6 text-center leading-relaxed">
-              Our team is here to help! Get in touch and we'll answer any questions you have about planning your perfect event.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="tel:+918310124421"
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                📞 Call Us Now
-              </motion.a>
-              <motion.a
-                href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I%20have%20some%20questions%20about%20your%20services"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                💬 WhatsApp Us
-              </motion.a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Phone, Whatsapp } from 'lucide-react';
+import { Phone } from 'lucide-react';
 const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Home', path: '/' },
@@ -12,7 +12,6 @@ const Footer: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
     { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/sri__lekha__na/", label: "Instagram" }
   ];
 

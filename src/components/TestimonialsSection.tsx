@@ -4,7 +4,9 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import eve4 from '../assets/eventcons/ev4y.jpg'
+import eve5 from '../assets/eventcons/eve5.jpg';
+import eve6 from '../assets/eventcons/eve6.jpg';
 gsap.registerPlugin(ScrollTrigger);
 
 const TestimonialsSection: React.FC = () => {
@@ -27,7 +29,7 @@ const TestimonialsSection: React.FC = () => {
       review: "Professional service from start to finish. Our wedding ceremony was beautifully organized and all guests were thoroughly impressed.",
       rating: 5,
       event: "Wedding Ceremony",
-      avatar: "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=150"
+      avatar: eve6
     },
     {
       id: 3,
@@ -39,11 +41,11 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 4,
-      name: "Mukesh Agarwal",
+      name: "Chandra Giri",
       review: "Excellent attention to detail and wonderful service. Our family function was memorable thanks to their creative decorations and planning.",
       rating: 5,
       event: "Family Function",
-      avatar: "https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg?auto=compress&cs=tinysrgb&w=150"
+      avatar: eve4
     },
     {
       id: 5,
@@ -51,7 +53,7 @@ const TestimonialsSection: React.FC = () => {
       review: "Amazing experience! The dance performances were outstanding and the kids' activities kept everyone engaged throughout the event.",
       rating: 5,
       event: "Festival Celebration",
-      avatar: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=150"
+      avatar: eve5
     }
   ];
 

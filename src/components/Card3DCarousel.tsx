@@ -2,18 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ChevronLeft, ChevronRight, Star, Calendar, Users } from 'lucide-react';
-
+import bday from "../assets/Birthday/bd1.jpeg"
+import wed from "../assets/weddingcermony/wdc.jpg"
+import kids from '../assets/indiankids/kito1.jpeg'
+import ind from '../assets/indiancorporateevent/icv.jpg'
+import lit from '../assets/lightdecoration/lt2.jpg'
+import { useNavigate } from 'react-router-dom';
 const Card3DCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(2); // Start with middle card active
   const carouselRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
-
+const navigate =useNavigate()
   const eventCards = [
     {
       id: 1,
       title: "MAGICAL BIRTHDAY",
       subtitle: "Princess Theme Party",
-      image: "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: bday,
       rating: 5.0,
       guests: "50+",
       duration: "6 Hours",
@@ -24,7 +29,7 @@ const Card3DCarousel: React.FC = () => {
       id: 2,
       title: "ELEGANT WEDDING",
       subtitle: "Dream Ceremony",
-      image: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: wed,
       rating: 4.9,
       guests: "200+",
       duration: "Full Day",
@@ -35,7 +40,7 @@ const Card3DCarousel: React.FC = () => {
       id: 3,
       title: "CORPORATE EVENT",
       subtitle: "Professional Excellence",
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: ind,
       rating: 4.8,
       guests: "100+",
       duration: "8 Hours",
@@ -46,7 +51,7 @@ const Card3DCarousel: React.FC = () => {
       id: 4,
       title: "FESTIVAL CELEBRATION",
       subtitle: "Cultural Extravaganza",
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: lit,
       rating: 4.9,
       guests: "300+",
       duration: "2 Days",
@@ -57,7 +62,7 @@ const Card3DCarousel: React.FC = () => {
       id: 5,
       title: "KIDS PARTY",
       subtitle: "Fun & Games",
-      image: "https://images.pexels.com/photos/1024969/pexels-photo-1024969.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: kids,
       rating: 5.0,
       guests: "30+",
       duration: "4 Hours",
@@ -132,7 +137,9 @@ const Card3DCarousel: React.FC = () => {
   const goToCard = (index: number) => {
     setCurrentIndex(index);
   };
-
+const handleonclick=()=>{
+  navigate(`/services#decoration`)
+}
   return (
     <section className="py-20 bg-black relative overflow-hidden">
       {/* Background Elements */}
@@ -238,7 +245,7 @@ const Card3DCarousel: React.FC = () => {
                 {index === currentIndex && (
                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 border border-white/30">
                     <motion.div
-                      animate={{ rotate: 360 }}
+                  
                       transition={{ 
                         duration: 8, 
                         repeat: Infinity, 
@@ -246,8 +253,8 @@ const Card3DCarousel: React.FC = () => {
                       }}
                       className="flex items-center space-x-1"
                     >
-                      <span className="text-white text-sm font-bold">360°</span>
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                      <span className="text-green text-sm font-bold"></span>
+                      <div className="w-2 h-2 bg-green rounded-full"></div>
                     </motion.div>
                   </div>
                 )}
@@ -314,7 +321,7 @@ const Card3DCarousel: React.FC = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                    >
+                      onClick={handleonclick} >
                       View Details
                     </motion.button>
                   )}

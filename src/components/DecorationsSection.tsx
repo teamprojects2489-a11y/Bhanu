@@ -5,7 +5,7 @@ import { Ballonimages } from '../assets/index.tsx';
 const DecorationsSection: React.FC = () => {
   const navigate = useNavigate();
   const decorations = [
-  { name: "Balloons", icon: "🎈", color: "from-red-400 to-pink-500", slug: "balloons" },
+  { name: "Balloons Decorations", icon: "🎈", color: "from-red-400 to-pink-500", slug: "balloons" },
   { name: "Flower Decorations", icon: "🌸", color: "from-pink-400 to-rose-500", slug: "flowers" },
   { name: "Ribbons", icon: "🎀", color: "from-purple-400 to-indigo-500", slug: "ribbons" },
   { name: "Lights", icon: "💡", color: "from-yellow-400 to-orange-500", slug: "lights" },
@@ -16,7 +16,7 @@ const DecorationsSection: React.FC = () => {
 
   return (
     <section id="decoration" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4" >
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4"
           initial={{ opacity: 0, y: 50 }}

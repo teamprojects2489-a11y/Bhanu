@@ -1,242 +1,172 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Award, Users, Heart } from 'lucide-react';
+import { Users, Award, Heart, Star } from 'lucide-react';
+import admin from '../assets/admin.jpg';
 
 const TeamSection: React.FC = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Bhanu Sharma",
-      role: "Founder & Creative Director",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description: "With 8+ years of experience in event management, Bhanu brings creativity and passion to every celebration.",
-      specialties: ["Event Planning", "Creative Design", "Team Leadership"],
-      achievements: "500+ Events Organized"
-    },
-    {
-      id: 2,
-      name: "Priya Patel",
-      role: "Decoration Specialist",
-      image: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description: "Expert in transforming spaces with beautiful decorations and themed setups that create magical atmospheres.",
-      specialties: ["Balloon Art", "Floral Design", "Theme Creation"],
-      achievements: "300+ Decoration Projects"
-    },
-    {
-      id: 3,
-      name: "Rajesh Kumar",
-      role: "Event Coordinator",
-      image: "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description: "Ensures seamless execution of events with meticulous planning and coordination of all event elements.",
-      specialties: ["Timeline Management", "Vendor Coordination", "Quality Control"],
-      achievements: "200+ Events Coordinated"
-    },
-    {
-      id: 4,
-      name: "Anita Singh",
-      role: "Activity Coordinator",
-      image: "https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description: "Specializes in organizing fun activities and entertainment that keep guests engaged throughout the event.",
-      specialties: ["Kids Activities", "Entertainment", "Games & Crafts"],
-      achievements: "1000+ Happy Kids"
-    }
-  ];
+  const leader = {
+    name: "SRI _ Lekhana",
+    role: "Founder & Event Director",
+    image: admin,
+    description:
+      "With a passion for perfection and creativity, Lekhana leads every event with precision and heart. Her attention to detail and leadership ensure that each celebration becomes a cherished memory.",
+    achievements: "500+ Successful Events",
+    specialties: ["Creative Direction", "Event Planning", "Client Relations"],
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
-      {/* Background Decorations */}
+      {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-20 right-20 text-4xl opacity-20"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.3, 1]
-          }}
-          transition={{ 
-            duration: 10, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
+          className="absolute top-20 right-20 text-5xl opacity-15"
+          animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
         >
-          👥
+          💫
         </motion.div>
         <motion.div
-          className="absolute bottom-20 left-10 text-5xl opacity-15"
-          animate={{ 
-            y: [0, -40, 0],
-            rotate: [0, 20, 0]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
+          className="absolute bottom-20 left-10 text-6xl opacity-10"
+          animate={{ y: [0, -30, 0], rotate: [0, 15, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
         >
-          ⭐
+          🌸
         </motion.div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 relative z-20">
+        {/* Section Header */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-            Meet Our <span className="text-indigo-600">Amazing</span> Team 👥
+          <h2 className="text-5xl font-bold text-gray-800 mb-4">
+            Meet <span className="text-indigo-600">Lekhana</span> 👑
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            The passionate professionals behind every successful celebration
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            The heart and mind behind every unforgettable celebration
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.id}
-              className="relative group"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -15 }}
-            >
-              <div className="bg-white rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 group-hover:shadow-2xl">
-                {/* Image */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Floating Achievement Badge */}
-                  <motion.div
-                    className="absolute top-4 right-4 bg-yellow-400 text-gray-800 px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    animate={{ 
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity, 
-                      ease: "easeInOut" 
-                    }}
-                  >
-                    <Award className="w-3 h-3 inline mr-1" />
-                    {member.achievements}
-                  </motion.div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                  <p className="text-indigo-600 font-semibold mb-3 text-sm">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    {member.description}
-                  </p>
-
-                  {/* Specialties */}
-                  <div className="mb-4">
-                    <h4 className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wider">
-                      Specialties
-                    </h4>
-                    <div className="flex flex-wrap gap-1">
-                      {member.specialties.map((specialty, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full text-xs font-medium"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex items-center justify-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                className="absolute -top-3 -right-3 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ 
-                  rotate: [0, 15, 0, -15, 0],
-                  scale: [1, 1.2, 1]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: index * 0.5
-                }}
-              >
-                ✨
-              </motion.div>
-              
-              <motion.div
-                className="absolute -bottom-2 -left-2 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 10, 0]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  ease: "easeInOut",
-                  delay: index * 0.3 + 1
-                }}
-              >
-                🌟
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Team Stats */}
+        {/* Main Card */}
         <motion.div
-          className="mt-16 bg-white rounded-3xl shadow-xl p-8 max-w-4xl mx-auto"
+          className="bg-white rounded-3xl shadow-2xl max-w-4xl mx-auto overflow-hidden group relative"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02 }}
+        >
+          {/* Background Glow */}
+          <motion.div
+            className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-100 via-purple-100 to-yellow-100 opacity-0"
+            whileHover={{ opacity: 0.2, scale: 1.02 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          />
+
+          {/* Image */}
+          <div className="relative z-10">
+            <img
+              src={leader.image}
+              alt={leader.name}
+              className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-3xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-t-3xl" />
+
+            {/* Floating Achievement Badge */}
+            <motion.div
+              className="absolute top-6 right-6 bg-yellow-400 text-gray-800 px-4 py-1 rounded-full text-sm font-semibold shadow-md"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <Award className="w-4 h-4 inline mr-1" />
+              {leader.achievements}
+            </motion.div>
+          </div>
+
+          {/* Content */}
+          <div className="p-8 text-center relative z-20">
+            <h3 className="text-3xl font-bold text-gray-800 mb-2">
+              <motion.span
+                className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent transition-all duration-500"
+                whileHover={{
+                  backgroundPosition: "200% center",
+                  scale: 1.1,
+                  rotate: [0, 2, -2, 0],
+                }}
+                style={{ backgroundSize: "200% auto", display: "inline-block" }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                {leader.name}
+              </motion.span>
+            </h3>
+
+            <p className="text-indigo-600 font-semibold mb-4 text-lg">{leader.role}</p>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">{leader.description}</p>
+
+            {/* Specialties */}
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              {leader.specialties.map((specialty, i) => (
+                <span
+                  key={i}
+                  className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  {specialty}
+                </span>
+              ))}
+            </div>
+
+            {/* Rating */}
+            <div className="flex justify-center mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-5 h-5 text-yellow-400 fill-current"
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Team Support Stats */}
+        <motion.div
+          className="mt-20 bg-white rounded-3xl shadow-xl p-8 max-w-4xl mx-auto"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-10">
+            Supported by an <span className="text-indigo-600">Outstanding Team</span> 🌟
+          </h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                 <Users className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800">15+</h3>
               <p className="text-gray-600 text-sm">Team Members</p>
             </div>
             <div>
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                 <Award className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800">50+</h3>
               <p className="text-gray-600 text-sm">Awards Won</p>
             </div>
             <div>
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                 <Star className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800">4.9/5</h3>
               <p className="text-gray-600 text-sm">Client Rating</p>
             </div>
             <div>
-              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 shadow-md">
                 <Heart className="w-8 h-8 text-pink-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-800">1000+</h3>

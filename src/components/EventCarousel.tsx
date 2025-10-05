@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import birthday from "../assets/Birthday/bd1.jpeg";
+import wedding from "../assets/weddingcermony/wdc.jpg";
+import cevent from "../assets/indiancorporateevent/icv.jpg";
+import festival from "../assets/festival/indfes.jpeg";
+import kids from "../assets/indiankids/kito1.jpeg";
 
 const EventCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -8,117 +14,126 @@ const EventCarousel: React.FC = () => {
   const events = [
     {
       id: 1,
-      title: "Birthday Bash 2024",
-      image: "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800",
-      caption: "Magical birthday celebration with colorful decorations"
+      title: "Birthday Celebration 🎉",
+      quote: "Every birthday deserves a touch of magic and joy!",
+      image: birthday,
     },
     {
       id: 2,
-      title: "Wedding Ceremony",
-      image: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800",
-      caption: "Elegant wedding setup with floral arrangements"
+      title: "Wedding Ceremony 💍",
+      quote: "Where two hearts unite and dreams come alive.",
+      image: wedding,
     },
     {
       id: 3,
-      title: "Corporate Event",
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
-      caption: "Professional corporate event management"
+      title: "Corporate Event 💼",
+      quote: "Creating memorable experiences that inspire teamwork and success.",
+      image: cevent,
     },
     {
       id: 4,
-      title: "Kids Party Fun",
-      image: "https://images.pexels.com/photos/1024969/pexels-photo-1024969.jpeg?auto=compress&cs=tinysrgb&w=800",
-      caption: "Fun-filled children's party with activities"
+      title: "Kids Party Fun 🎈",
+      quote: "A world of colors, laughter, and endless giggles.",
+      image: kids,
     },
     {
       id: 5,
-      title: "Festival Celebration",
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
-      caption: "Vibrant festival decorations and setup"
-    }
+      title: "Festival Celebration 🎊",
+      quote: "Celebrating culture, colors, and togetherness in every moment.",
+      image: festival,
+    },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % events.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [events.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % events.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % events.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-br from-yellow-50 via-pink-50 to-blue-50 overflow-hidden relative">
+      <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12"
+          className="text-5xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 text-transparent bg-clip-text drop-shadow-lg"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          Event Highlights
+          Event Highlights 
         </motion.h2>
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden">
+          <div className="relative h-[480px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
                 className="absolute inset-0"
-                initial={{ opacity: 0, x: 300 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -300 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 <img
                   src={events[currentSlide].image}
                   alt={events[currentSlide].title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+                {/* Floating title and quote */}
+                <motion.div
+                className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <h3 className="text-3xl md:text-5xl font-extrabold mb-3 tracking-wide bg-gradient-to-r from-yellow-300 via-pink-400 to-orange-400 bg-clip-text text-transparent drop-shadow-lg">
                     {events[currentSlide].title}
                   </h3>
-                  <p className="text-lg text-white/90">
-                    {events[currentSlide].caption}
+                  <p className="text-lg md:text-2xl italic text-white/90 drop-shadow-md font-light max-w-3xl mx-auto">
+                    “{events[currentSlide].quote}”
                   </p>
-                </div>
+                  <motion.p
+                    className="mt-6 text-sm md:text-base text-yellow-300/80"
+                    animate={{ opacity: [0.6, 1, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    — SB Events Team 💫
+                  </motion.p>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Arrows */}
+            {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md"
             >
               <ChevronLeft size={24} />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md"
             >
               <ChevronRight size={24} />
             </button>
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className="flex justify-center mt-8 space-x-2">
             {events.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
-                    ? 'bg-blue-500 w-8'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? "bg-gradient-to-r from-pink-500 to-yellow-400 w-8 shadow-md"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}

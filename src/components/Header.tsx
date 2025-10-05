@@ -45,7 +45,7 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <img src={logo} alt="Logo" className="w-10 h-10 drop-shadow-lg" />
+              <img src={logo} alt="Logo" className="w-10 h-10 drop-shadow-lg rounded-full" />
               <div>
                 <h1
                   className={`text-xl md:text-2xl font-extrabold tracking-wide bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent`}

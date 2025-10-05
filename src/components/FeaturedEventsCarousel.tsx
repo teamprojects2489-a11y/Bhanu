@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Calendar, Users, MapPin } from 'lucide-react';
-
+import bithday from '../assets/Birthday/bd1.jpeg'
+import wedding  from '../assets/weddingcermony/wdc.jpg'
+import cevent from '../assets/indiancorporateevent/icv.jpg'
+import festival from '../assets/festival/indfes.jpeg'
+import kids from '../assets/indiankids/kito1.jpeg'
 const FeaturedEventsCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
 
   const featuredEvents = [
     {
@@ -11,7 +16,7 @@ const FeaturedEventsCarousel: React.FC = () => {
       title: "Royal Wedding Celebration",
       subtitle: "Luxury Wedding Planning",
       description: "A magnificent 3-day wedding celebration with traditional and modern elements, featuring 500+ guests and world-class entertainment.",
-      image: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      image: wedding,
       details: {
         guests: "500+",
         duration: "3 Days",
@@ -24,7 +29,7 @@ const FeaturedEventsCarousel: React.FC = () => {
       title: "Corporate Innovation Summit",
       subtitle: "Professional Event Management",
       description: "A high-profile corporate event bringing together industry leaders, featuring keynote speakers, networking sessions, and product launches.",
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      image: cevent,
       details: {
         guests: "300+",
         duration: "2 Days",
@@ -34,10 +39,10 @@ const FeaturedEventsCarousel: React.FC = () => {
     },
     {
       id: 3,
-      title: "Princess Birthday Extravaganza",
+      title: " Birthday Extravaganza",
       subtitle: "Magical Children's Party",
       description: "A fairy-tale themed birthday party complete with castle decorations, princess entertainment, and magical activities for kids.",
-      image: "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      image: bithday,
       details: {
         guests: "50+",
         duration: "6 Hours",
@@ -50,10 +55,10 @@ const FeaturedEventsCarousel: React.FC = () => {
       title: "Festival of Colors",
       subtitle: "Cultural Celebration",
       description: "A vibrant cultural festival celebrating traditions with authentic decorations, cultural performances, and traditional cuisine.",
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      image: festival,
       details: {
         guests: "800+",
-        duration: "1 Day",
+        duration: "3 Day",
         location: "Open Grounds"
       },
       category: "Festival"

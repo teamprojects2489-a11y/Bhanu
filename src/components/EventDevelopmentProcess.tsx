@@ -75,7 +75,8 @@ const EventDevelopmentProcess: React.FC = () => {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 {/* Year Badge */}
-                <div className="absolute -left-4 top-6 z-10">
+                <div className="absolute -left-20 top-20
+                 z-10">
                   <div className="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold text-sm flex items-center space-x-2">
                     <div className="bg-white text-red-500 p-1 rounded">
                       {phase.icon}

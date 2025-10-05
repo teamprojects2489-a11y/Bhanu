@@ -17,13 +17,13 @@ const PricingSection: React.FC = () => {
       features: [
         'Basic balloon decorations',
         'Simple backdrop setup',
-        '2-3 fun activities',
+        'fun activities',
         'Basic photography props',
-        '4-hour event coordination',
+        ' event coordination',
         'Cleanup service included'
       ],
       guestCount: 'Up to 30 guests',
-      duration: '4 hours'
+      // duration: '4 hours'
     },
     {
       id: 'premium',
@@ -37,12 +37,11 @@ const PricingSection: React.FC = () => {
       features: [
         'Premium balloon arrangements',
         'Themed decorations & backdrop',
-        '5-6 engaging activities',
+        '5-6 engaging activities & Customized',
         'Professional photo booth',
-        'Dance performance (30 mins)',
         'Full-day event coordination',
-        'Catering coordination',
-        'Cleanup & setup service'
+        'Cleanup & setup service',
+        'More'
       ],
       guestCount: 'Up to 80 guests',
       duration: '8 hours'
@@ -192,7 +191,7 @@ const PricingSection: React.FC = () => {
                       <span className="text-3xl font-bold">{plan.price}</span>
                       <span className="text-white/70 line-through text-lg">{plan.originalPrice}</span>
                     </div>
-                    <p className="text-white/80 text-sm">{plan.guestCount} • {plan.duration}</p>
+                
                   </div>
                 </div>
 
@@ -253,7 +252,7 @@ const PricingSection: React.FC = () => {
               >
                 <div className="text-2xl mb-2">{addon.icon}</div>
                 <h4 className="font-semibold text-gray-800 text-sm mb-1">{addon.name}</h4>
-                <p className="text-purple-600 font-bold">{addon.price}</p>
+      
               </motion.div>
             ))}
           </div>
@@ -276,20 +275,22 @@ const PricingSection: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="tel:+919876543210"
+                href="tel:+918310124421"
                 className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-bold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                
               >
                 📞 Get Custom Quote
               </motion.a>
               <motion.a
-                href="https://wa.me/919876543210?text=Hi%20Bhanu%20Events%2C%20I'd%20like%20to%20discuss%20pricing%20for%20my%20event!"
+                href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I'd%20like%20to%20discuss%20pricing%20for%20my%20event!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+              
               >
                 💬 Chat on WhatsApp
               </motion.a>

@@ -61,7 +61,7 @@ const CTASection: React.FC = () => {
             viewport={{ once: true }}
           >
             <motion.a
-              href="tel:+919876543210"
+              href="tel:+918310124421"
               className="bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-3 hover:bg-yellow-300 transition-all duration-300 shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -71,7 +71,7 @@ const CTASection: React.FC = () => {
             </motion.a>
 
             <motion.a
-              href="https://wa.me/919876543210?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
+              href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20your%20services!"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-3 transition-all duration-300 shadow-xl"

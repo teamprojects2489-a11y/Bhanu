@@ -22,19 +22,20 @@ const Home: React.FC = () => {
   return (
     <div>
       <HeroSection />
+      <FeatureCards />
       <EventCarousel />
       <FeaturedEventsCarousel />
       <EventJourneyCarousel />
-      <FeatureCards />
+      
       <StatsSection />
-      <GallerySection />
+   
       <TeamSection />
       <ProcessSection />
       <Card3DCarousel />
-      <ClientsCarousel />
+   
       <PricingSection />
       <TestimonialsSection />
-      <BlogSection />
+    
       <FAQSection />
       <VideoBackgroundSection />
       <CTASection />

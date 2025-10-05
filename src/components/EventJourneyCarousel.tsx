@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Lightbulb, Calendar, CheckCircle, Users, Star } from 'lucide-react';
+import birthday from "../assets/Birthday/bd1.jpeg";
+import wedding from "../assets/weddingcermony/wdc.jpg";
+import cevent from "../assets/indiancorporateevent/icv.jpg";
+import festival from "../assets/festival/indfes.jpeg";
+import kids from "../assets/indiankids/kito1.jpeg";
+import eve from '../assets/eventcons/eve1.jpg'
+import eve1 from '../assets/eventcons/ev2.jpg'
+import eve2 from '../assets/eventcons/eve2.jpg'
+import eve4 from '../assets/eventcons/eve4.jpg'
 
 const EventJourneyCarousel: React.FC = () => {
   const [activeStep, setActiveStep] = useState(3); // Start with step 4 active (like in the image)
@@ -11,7 +20,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Initial Consultation",
       description: "Advanced event consultation and project requirements analysis",
       icon: <MessageCircle className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: eve,
       step: "Step 1 of 6"
     },
     {
@@ -19,7 +28,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Design & Development",
       description: "Custom event design and architecture development with expert guidance",
       icon: <Lightbulb className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: eve2,
       step: "Step 2 of 6"
     },
     {
@@ -27,7 +36,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Planning & Coordination",
       description: "Real-world event planning and comprehensive coordination phases",
       icon: <Calendar className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: eve1,
       step: "Step 3 of 6"
     },
     {
@@ -35,7 +44,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Verification & Validation",
       description: "Complete verification process and performance validation",
       icon: <CheckCircle className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: cevent,
       step: "Step 4 of 6"
     },
     {
@@ -43,7 +52,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Event Support",
       description: "Production planning and event execution process optimization",
       icon: <Users className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: festival,
       step: "Step 5 of 6"
     },
     {
@@ -51,7 +60,7 @@ const EventJourneyCarousel: React.FC = () => {
       title: "Follow-up & Support",
       description: "Final event assistance and ongoing technical support",
       icon: <Star className="w-6 h-6" />,
-      image: "https://images.pexels.com/photos/1024969/pexels-photo-1024969.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: eve4,
       step: "Step 6 of 6"
     }
   ];

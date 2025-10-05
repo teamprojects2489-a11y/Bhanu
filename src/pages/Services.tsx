@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DecorationsSection from '../components/DecorationsSection';
 import ActivitiesSection from '../components/ActivitiesSection';
 import DanceSection from '../components/DanceSection';
 import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {
+  useEffect(() => {
+  if (location.hash) {
+    const element = document.querySelector(location.hash);
+    if (element) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+      }, 100); // slight delay for rendering
+    }
+  }
+}, [location]);
+
   const serviceCategories = [
     {
       title: "Event Planning",
@@ -27,6 +38,7 @@ const Services: React.FC = () => {
       features: ["Menu Planning", "Vendor Selection", "Service Coordination", "Special Dietary Needs"]
     }
   ];
+
 
   return (
     <div className="pt-20">
@@ -149,10 +161,16 @@ const Services: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.a
-                href="tel:+919876543210"
-                className="bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+            onClick={() => {
+    const phoneNumber = "+918310124421";
+    const message = encodeURIComponent("Hello! I want a custom event quote."); // your pre-filled message
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, "_blank"); // opens WhatsApp in new tab/app
+    
+  }}
+   className="cursor-pointer bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl"
+  whileHover={{ scale: 1.05, y: -2 }}
+  whileTap={{ scale: 0.95 }}
               >
                 Get Custom Quote
               </motion.a>
@@ -194,7 +212,7 @@ const Services: React.FC = () => {
       {/* Detailed Service Sections */}
       <DecorationsSection />
       <ActivitiesSection />
-      <DanceSection />
+      {/* <DanceSection /> */}
     </div>
   );
 };

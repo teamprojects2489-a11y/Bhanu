@@ -231,7 +231,78 @@ import sd2 from './sandart/sd2.jpg';
 import sd3 from './sandart/sd3.webp';
 import sd4 from './sandart/sd4.jpg';
 import sd from './sandart/sd.jpg';
+// flower decoration===//
+import fd1 from './flowerdecoration/fd1.jpg';
+import fd2 from './flowerdecoration/fd2.webp';
+import fd3 from './flowerdecoration/fd3.webp';
+import fd4 from './flowerdecoration/fd4.jpg';
+import fd5 from './flowerdecoration/fd5.webp';
+import fd6 from './flowerdecoration/fd6.webp';
+import fd8 from './flowerdecoration/fd8.webp';
+import fd9 from './flowerdecoration/fd9.jpg';
+import fd10 from './flowerdecoration/fd10.jpeg';
+import fd12 from './flowerdecoration/fd11.jpeg';
+//Entry aeches
+import ea1 from './entryarches/ea1.jpg';
+import ea2 from './entryarches/ea2.jpg';
+import ea4 from './entryarches/ea4.jpg';
+import ea6 from './entryarches/ea6.jpg';
+import ea7 from './entryarches/ea7.jpg';
+import ea8 from './entryarches/ea8.jpg';
+import ea9 from './entryarches/ea9.jpg';
+import ea10 from './entryarches/ea10.jpg';
+import ea12 from './entryarches/ea12.jpg';
+import ea13 from './entryarches/ea13.png';
+//Ribbons decoration
+import rb1 from './ribbons/rb1.jpg';
+import rb2 from './ribbons/rb2.jpg';
+import rb3 from './ribbons/rb3.jpg';
+import rb4 from './ribbons/rb4.jpg';
+import rb5 from './ribbons/rb5.jpeg';
+import rb7 from './ribbons/rb7.jpg';
+import rb8 from './ribbons/rb8.jpg';
+import rb9 from './ribbons/rb9.jpg';
+import rb10 from './ribbons/rb10.jpg';
+//light decoration
+import lt1 from './lightdecoration/lt1.jpg';
+import lt2 from './lightdecoration/lt2.jpg';
+import lt3 from './lightdecoration/lt3.jpg';
+import lt4 from './lightdecoration/lt4.jpg';
+import lt5 from './lightdecoration/lt5.jpg';
+import lt6 from './lightdecoration/lt6.jpg';
+import lt7 from './lightdecoration/lt7.jpg';
+import lt8 from './lightdecoration/lt8.jpg';
+import lt9 from './lightdecoration/lt9.jpg';
+import st1 from './stagebackdrop/st1.webp';
+import st2 from './stagebackdrop/st2.jpg';
+import st3 from './stagebackdrop/st3.jpg';
+import st4 from './stagebackdrop/st4.jpg';
+import st5 from './stagebackdrop/st5.jpg';
+export const StageBackdropImages = [
+  st1, st2, st3, st4,
+  st5
+];
+export const LightDecorationImages = [    
+  lt1, lt2, lt3, lt4,
+  lt5, lt6, lt7,
+  lt8, lt9
+];
+export const RibbonImages = [
+  rb1, rb2, rb3, rb4,
+  rb5, rb7, rb8,
+  rb9, rb10
+];
+export const EntryArchesImages = [
+  ea1, ea2, ea4, ea6,
+  ea7, ea8, ea9,
+  ea10, ea12, ea13
+];
 
+export const FlowerDecorationImages = [
+  fd1, fd2, fd3, fd4,
+  fd5, fd6, fd8,
+  fd9, fd10,fd12
+];
 export const SandArtImages = [
   sd, sd2, sd3, sd4
 ];

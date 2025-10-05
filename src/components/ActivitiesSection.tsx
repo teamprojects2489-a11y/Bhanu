@@ -24,7 +24,7 @@ const ActivitiesSection: React.FC = () => {
 
 
   return (
-    <section id="activities" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section id="fun-activities" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4"
