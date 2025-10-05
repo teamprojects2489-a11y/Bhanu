@@ -243,16 +243,16 @@ import fd9 from './flowerdecoration/fd9.jpg';
 import fd10 from './flowerdecoration/fd10.jpeg';
 import fd12 from './flowerdecoration/fd11.jpeg';
 //Entry aeches
-import ea1 from './entryarches/ea1.jpg';
-import ea2 from './entryarches/ea2.jpg';
-import ea4 from './entryarches/ea4.jpg';
-import ea6 from './entryarches/ea6.jpg';
-import ea7 from './entryarches/ea7.jpg';
-import ea8 from './entryarches/ea8.jpg';
-import ea9 from './entryarches/ea9.jpg';
-import ea10 from './entryarches/ea10.jpg';
-import ea12 from './entryarches/ea12.jpg';
-import ea13 from './entryarches/ea13.png';
+import ea1 from './ENTRYARCHES/ea1.jpg';
+import ea2 from './ENTRYARCHES/ea2.jpg';
+import ea4 from './ENTRYARCHES/ea4.jpg';
+import ea6 from './ENTRYARCHES/ea6.jpg';
+import ea7 from './ENTRYARCHES/ea7.jpg';
+import ea8 from './ENTRYARCHES/ea8.jpg';
+import ea9 from './ENTRYARCHES/ea9.jpg';
+import ea10 from './ENTRYARCHES/ea10.jpg';
+import ea12 from './ENTRYARCHES/ea12.jpg';
+import ea13 from './ENTRYARCHES/ea13.png';
 //Ribbons decoration
 import rb1 from './ribbons/rb1.jpg';
 import rb2 from './ribbons/rb2.jpg';
