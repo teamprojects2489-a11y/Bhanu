@@ -1,0 +1,46 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build outputs
+dist/
+build/
+.cache/
+.tmp/
+
+# local env files
+.env
+.env.local
+.env.*.local
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+
+# test coverage
+coverage/
+*.lcov
+
+# misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# lock files (optional — comment out if you want to keep)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# vercel / deployment cache (optional)
+.vercel/
