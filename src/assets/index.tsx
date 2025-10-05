@@ -108,8 +108,8 @@ import kc10 from './keychainmaking/kc10.jpeg';
 import j1 from './jewelry/j1.jpg';
 import j2 from './jewelry/j2.jpg';
 import j3 from './jewelry/j3.jpg';
-import j4 from './jewelry/j4.jpg';
-import j5 from './jewelry/j5.jpg';
+import j4 from './jewelry/J4.jpg';
+import j5 from './jewelry/J5.jpg';
 import j6 from './jewelry/j6.jpg';
 import j7 from './jewelry/j7.jpg';
 //=== pebbels art====//
