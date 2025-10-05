@@ -68,11 +68,12 @@ const TeamSection: React.FC = () => {
           />
 
           {/* Image */}
-          <div className="relative z-10">
+          <div className="relative z-10 ">
             <img
               src={leader.image}
               alt={leader.name}
               className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-3xl"
+                style={{ objectPosition: 'center 30%' }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-t-3xl" />
 
