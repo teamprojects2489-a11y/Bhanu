@@ -110,8 +110,8 @@ import j2 from './jewelry/j2.jpg';
 import j3 from './jewelry/j3.jpg';
 import j4 from './jewelry/J4.jpg';
 import j5 from './jewelry/J5.jpg';
-import j6 from './jewelry/j6.jpg';
-import j7 from './jewelry/j7.jpg';
+import j6 from './jewelry/J6.jpg';
+import j7 from './jewelry/J7.jpg';
 //=== pebbels art====//
 import pb1 from './pebblesart/pb1.jpg';
 import pb2 from './pebblesart/pb2.jpg';
