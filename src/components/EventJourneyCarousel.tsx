@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Lightbulb, Calendar, CheckCircle, Users, Star } from 'lucide-react';
-import birthday from "../assets/Birthday/bd1.jpeg";
-import wedding from "../assets/weddingcermony/wdc.jpg";
 import cevent from "../assets/indiancorporateevent/icv.jpg";
 import festival from "../assets/festival/indfes.jpeg";
-import kids from "../assets/indiankids/kito1.jpeg";
 import eve from '../assets/eventcons/eve1.jpg'
 import eve1 from '../assets/eventcons/ev2.jpg'
 import eve2 from '../assets/eventcons/eve2.jpg'
