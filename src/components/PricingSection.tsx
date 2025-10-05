@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Star, Crown, Gift, Sparkles } from 'lucide-react';
 

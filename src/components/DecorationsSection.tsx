@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Ballonimages } from '../assets/index.tsx';
   import { useNavigate } from 'react-router-dom';
 const DecorationsSection: React.FC = () => {
   const navigate = useNavigate();
