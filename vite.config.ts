@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,6 +9,7 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1000, // in KB
     rollupOptions: {
+      external: [],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -25,12 +27,15 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      'react-router': resolve(__dirname, 'node_modules/react-router'),
+      'react-router-dom': resolve(__dirname, 'node_modules/react-router-dom')
     },
     dedupe: ['react', 'react-dom', 'react-router', 'react-router-dom']
   },
   optimizeDeps: {
-    include: ['react-router-dom', 'react-router']
+    include: ['react-router-dom', 'react-router'],
+    force: true
   },
   ssr: {
     noExternal: ['react-router-dom', 'react-router']
