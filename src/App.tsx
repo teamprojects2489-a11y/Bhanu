@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -31,7 +31,7 @@ import Lightdecors from "./components/Docarion/LightDecoration";
 import StagebackDrops from "./components/Docarion/Stagebackgrops";
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-sky-100 to-sky-200">
         <Header />
         <Routes>
@@ -64,7 +64,7 @@ function App() {
         <Footer />
         <WhatsAppButton />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
