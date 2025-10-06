@@ -109,10 +109,10 @@ import kc10 from './keychainmaking/kc10.webp';
 import j1 from './jewelry/j1.webp';
 import j2 from './jewelry/j2.webp';
 import j3 from './jewelry/j3.webp';
-import j4 from './jewelry/j4.webp';
-import j5 from './jewelry/j5.webp';
-import j6 from './jewelry/j6.webp';
-import j7 from './jewelry/j7.webp';
+import j4 from './jewelry/J4.webp';
+import j5 from './jewelry/J5.webp';
+import j6 from './jewelry/J6.webp';
+import j7 from './jewelry/J7.webp';
   
 //=== pebbels art====//
 import pb1 from './pebblesart/pb1.webp';
