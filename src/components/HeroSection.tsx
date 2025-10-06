@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
           className="w-full h-full object-cover"
         >
           <source
-            src="/Public/hero/herovid.webm"
+            src="/hero/herovid.webm"
             type="video/webm"
           />
           {/* Fallback for browsers that don't support video */}
