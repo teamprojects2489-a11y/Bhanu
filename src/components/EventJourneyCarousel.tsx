@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Lightbulb, Calendar, CheckCircle, Users, Star } from 'lucide-react';
-import cevent from "../assets/indiancorporateevent/icv.jpg";
-import festival from "../assets/festival/indfes.jpeg";
-import eve from '../assets/eventcons/eve1.jpg'
-import eve1 from '../assets/eventcons/ev2.jpg'
-import eve2 from '../assets/eventcons/eve2.jpg'
-import eve4 from '../assets/eventcons/eve4.jpg'
+import cevent from "../assets/indiancorporateevent/icv.webp";
+import festival from "../assets/festival/indfes.webp";
+import eve from '../assets/eventcons/eve1.webp';
+import eve1 from '../assets/eventcons/ev2.webp';
+import eve2 from '../assets/eventcons/eve2.webp';
+import eve4 from '../assets/eventcons/eve4.webp';
 
 const EventJourneyCarousel: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(3); // Start with step 4 active (like in the image)
+  const [activeStep, setActiveStep] = useState(3);
 
   const journeySteps = [
     {
@@ -62,22 +62,22 @@ const EventJourneyCarousel: React.FC = () => {
     }
   ];
 
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep((prev) => (prev % journeySteps.length) + 1);
+      setActiveStep(prev => (prev % journeySteps.length) + 1);
     }, 4000);
     return () => clearInterval(interval);
   }, [journeySteps.length]);
 
-  const handleStepClick = (stepId: number) => {
-    setActiveStep(stepId);
-  };
-
   const activeStepData = journeySteps.find(step => step.id === activeStep);
+
+  const handleStepClick = (id: number) => setActiveStep(id);
 
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -95,60 +95,59 @@ const EventJourneyCarousel: React.FC = () => {
         </motion.div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left - Image */}
             <motion.div
-              className="relative"
+              className="relative w-full h-72 sm:h-96 lg:h-full rounded-2xl overflow-hidden shadow-2xl"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeStep}
-                    src={activeStepData?.image}
-                    alt={activeStepData?.title}
-                    className="w-full h-96 object-cover"
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </AnimatePresence>
-                
-                {/* Overlay with step info */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <motion.div
-                    className="bg-yellow-600 text-white px-4 py-2 rounded-full inline-flex items-center space-x-2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  >
-                    <div className="bg-white text-yellow-600 p-1 rounded-full">
-                      {activeStepData?.icon}
-                    </div>
-                    <span className="font-semibold">{activeStepData?.title}</span>
-                  </motion.div>
-                  <p className="text-white text-sm mt-2 bg-black/20 backdrop-blur-sm rounded px-3 py-1 inline-block">
-                    {activeStepData?.step}
-                  </p>
-                </div>
+              <AnimatePresence initial={false} mode="wait">
+                <motion.img
+                  key={activeStep}
+                  src={activeStepData?.image}
+                  alt={activeStepData?.title}
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+
+              {/* Overlay Step Info */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <motion.div
+                  className="bg-yellow-600 text-white px-4 py-2 rounded-full inline-flex items-center space-x-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="bg-white text-yellow-600 p-1 rounded-full">
+                    {activeStepData?.icon}
+                  </div>
+                  <span className="font-semibold">{activeStepData?.title}</span>
+                </motion.div>
+                <p className="text-white text-sm mt-2 bg-black/20 backdrop-blur-sm rounded px-3 py-1 inline-block">
+                  {activeStepData?.step}
+                </p>
               </div>
             </motion.div>
 
-            {/* Right Side - Steps */}
+            {/* Right - Steps */}
             <motion.div
-              className="space-y-4"
+              className="space-y-4 max-h-[480px] lg:max-h-full overflow-auto"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {journeySteps.map((step, index) => (
+              {journeySteps.map(step => (
                 <motion.div
                   key={step.id}
+                  id={`step-${step.id}`}
                   className={`relative cursor-pointer transition-all duration-300 ${
                     activeStep === step.id
                       ? 'bg-yellow-50 border-l-4 border-yellow-600'
@@ -156,12 +155,8 @@ const EventJourneyCarousel: React.FC = () => {
                   }`}
                   onClick={() => handleStepClick(step.id)}
                   whileHover={{ x: 5 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
                 >
-                  <div className="p-6 flex items-start space-x-4">
+                  <div className="p-4 sm:p-6 flex items-start space-x-4">
                     <div className={`p-3 rounded-full ${
                       activeStep === step.id
                         ? 'bg-yellow-600 text-white'
@@ -194,30 +189,29 @@ const EventJourneyCarousel: React.FC = () => {
               ))}
             </motion.div>
           </div>
-        </div>
 
-        {/* Progress Indicator */}
-        <motion.div
-          className="mt-12 flex justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex space-x-2">
-            {journeySteps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => handleStepClick(step.id)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  activeStep === step.id
-                    ? 'bg-yellow-600 w-8'
-                    : 'bg-gray-300 hover:bg-yellow-300'
-                }`}
-              />
-            ))}
-          </div>
-        </motion.div>
+          {/* Progress Dots */}
+          <motion.div
+            className="mt-8 flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex space-x-2">
+              {journeySteps.map(step => (
+                <motion.button
+                  key={step.id}
+                  onClick={() => handleStepClick(step.id)}
+                  className={`h-3 rounded-full bg-yellow-600`}
+                  initial={{ width: 12 }}
+                  animate={{ width: activeStep === step.id ? 32 : 12 }}
+                  transition={{ duration: 0.4 }}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

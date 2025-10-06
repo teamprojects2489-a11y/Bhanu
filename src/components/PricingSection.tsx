@@ -284,7 +284,7 @@ const PricingSection: React.FC = () => {
                 📞 Get Custom Quote
               </motion.a>
               <motion.a
-                href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I'd%20like%20to%20discuss%20pricing%20for%20my%20event!"
+                href="https://wa.me/+918310124421?text=Hi%20Bhanu%20Events%2C%20I'd%20like%20to%20discuss%20pricing%20for%20my%20event!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-lg"

@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Ballonimages } from '../assets/index.tsx'; // Array of image URLs
 
 const BalloonGallery: React.FC = () => {
+   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+
+  const handleImageClick = (img: string) => {
+    if (window.innerWidth < 768) {
+      setFullscreenImg(img);
+    }
+  };
+
+  const closeFullscreen = () => setFullscreenImg(null);
   return (
     <section className="py-20 min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-purple-100">
       <div className="container mx-auto px-4">
@@ -27,6 +36,7 @@ const BalloonGallery: React.FC = () => {
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.03 }}
+              onClick={() => handleImageClick(img)}
             >
               <img
                 src={img}
@@ -41,6 +51,31 @@ const BalloonGallery: React.FC = () => {
           ))}
         </div>
       </div>
+         {fullscreenImg && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
+          <img
+            src={fullscreenImg}
+            alt="Full"
+            className="w-full h-full object-contain" // <-- updated style
+          />
+          {/* Cross button */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2"
+            aria-label="Close"
+          >
+            &#10005;
+          </button>
+          {/* Back button */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 left-4 text-white text-2xl bg-black bg-opacity-50 rounded-full p-2"
+            aria-label="Back"
+          >
+            &#8592;
+          </button>
+        </div>
+      )}
     </section>
   );
 };

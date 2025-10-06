@@ -29,6 +29,7 @@ import EntryArchieves from "./components/Docarion/EntryArcheves";
 import RibbonDecorations from "./components/Docarion/Ribbon";
 import Lightdecors from "./components/Docarion/LightDecoration";
 import StagebackDrops from "./components/Docarion/Stagebackgrops";
+import Caricutures from "./components/Funactivities/Caricutures";
 function App() {
   return (
     <BrowserRouter>
@@ -60,6 +61,7 @@ function App() {
           <Route path="/decorations/ribbons" element={<RibbonDecorations />} />
           <Route path="/decorations/lights" element={<Lightdecors />} />
           <Route path="/decorations/stage-backdrop" element={<StagebackDrops />} /> 
+          <Route path="/activities/caricatures" element={<Caricutures/>} />
         </Routes>
         <Footer />
         <WhatsAppButton />

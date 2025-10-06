@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CloudElements from "./CloudElements";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
@@ -92,12 +91,13 @@ const HeroSection: React.FC = () => {
           autoPlay
           muted
           loop
+          
           playsInline
           className="w-full h-full object-cover"
         >
           <source
-            src="https://video.wixstatic.com/video/ac4509_e2e9678a88e04202ab38da85e5fca299/1080p/mp4/file.mp4"
-            type="video/mp4"
+            src="/Public/hero/herovid.webm"
+            type="video/webm"
           />
           {/* Fallback for browsers that don't support video */}
           <div className="w-full h-full bg-gradient-to-b from-sky-400 via-sky-500 to-sky-600"></div>

@@ -4,9 +4,11 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import eve4 from '../assets/eventcons/ev4y.jpg'
-import eve5 from '../assets/eventcons/eve5.jpg';
-import eve6 from '../assets/eventcons/eve6.jpg';
+import eve4 from '../assets/eventcons/ev4y.webp'
+import eve5 from '../assets/eventcons/eve5.webp';
+import eve6 from '../assets/eventcons/eve6.webp';
+import pte from '../assets/p.webp'
+import anita from '../assets/app123.webp'
 gsap.registerPlugin(ScrollTrigger);
 
 const TestimonialsSection: React.FC = () => {
@@ -21,7 +23,7 @@ const TestimonialsSection: React.FC = () => {
       review: "SB EVENTS made our daughter's birthday absolutely magical! The decorations were stunning and the kids had so much fun with all the activities.",
       rating: 5,
       event: "Birthday Party",
-      avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150"
+      avatar: pte
     },
     {
       id: 2,
@@ -37,7 +39,7 @@ const TestimonialsSection: React.FC = () => {
       review: "The team is creative, punctual, and professional. They transformed our corporate event space into something truly spectacular!",
       rating: 5,
       event: "Corporate Event",
-      avatar: "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150"
+      avatar: anita
     },
     {
       id: 4,

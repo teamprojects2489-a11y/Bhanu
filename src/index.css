@@ -21,3 +21,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* Add to your global CSS file */
+body, html {
+  overflow-x: hidden;
+}
+#root {
+  overflow-x: hidden;
+}

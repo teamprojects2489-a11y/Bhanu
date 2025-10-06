@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: ["+91 8310124421", "+91 8310124421"],
+      details: ["+91 8310124421"],
       action: "tel:+918310124421"
     },
     {
@@ -132,7 +132,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.a
-                href="tel:+8310124421"
+                href="tel:+918310124421"
                 className="bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                 <span>Call Now</span>
               </motion.a>
               <motion.a
-                href="https://wa.me/8310124421?text=Hi%20SB%20Events%2C%20I'm%20interested%20in%20your%20services!"
+                href="https://wa.me/+918310124421?text=Hi%20SB%20Events%2C%20I'm%20interested%20in%20your%20services!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl flex items-center justify-center space-x-2"

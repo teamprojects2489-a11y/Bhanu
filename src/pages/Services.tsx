@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
-import DecorationsSection from '../components/DecorationsSection';
-import ActivitiesSection from '../components/ActivitiesSection';
-import { motion } from 'framer-motion';
+import React, { useEffect, lazy, Suspense } from "react";
+import { motion } from "framer-motion";
+
+// Lazy load heavy sections
+const DecorationsSection = lazy(() => import("../components/DecorationsSection"));
+const ActivitiesSection = lazy(() => import("../components/ActivitiesSection"));
+// const DanceSection = lazy(() => import("../components/DanceSection"));
 
 const Services: React.FC = () => {
   useEffect(() => {
-  if (location.hash) {
-    const element = document.querySelector(location.hash);
-    if (element) {
-      setTimeout(() => {
-        element.scrollIntoView({ behavior: "smooth" });
-      }, 100); // slight delay for rendering
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
     }
-  }
-}, [location]);
+  }, [location]);
 
   const serviceCategories = [
     {
@@ -38,10 +41,9 @@ const Services: React.FC = () => {
     }
   ];
 
-
   return (
     <div className="pt-20">
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
@@ -65,52 +67,27 @@ const Services: React.FC = () => {
         {/* Floating Service Icons */}
         <motion.div
           className="absolute top-20 left-10 text-4xl opacity-60"
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 15, 0]
-          }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
+          animate={{ y: [0, -20, 0], rotate: [0, 15, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           ☁️
         </motion.div>
-
         <motion.div
           className="absolute bottom-20 right-10 text-3xl opacity-60"
-          animate={{ 
-            y: [0, -15, 0],
-            x: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 5, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
+          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
           ☁️
         </motion.div>
-
         <motion.div
           className="absolute top-1/2 left-10 text-2xl opacity-60"
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 1
-          }}
+          animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
           ⭐
         </motion.div>
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4" id="serviceshead">
           <motion.div
             className="text-center max-w-4xl mx-auto relative z-10"
             initial={{ opacity: 0, y: 50 }}
@@ -132,7 +109,7 @@ const Services: React.FC = () => {
               From intimate gatherings to grand celebrations, we offer comprehensive event management services 
               tailored to make your special day unforgettable.
             </p>
-            
+
             {/* Service Highlights */}
             <motion.div
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-2xl mx-auto"
@@ -160,16 +137,15 @@ const Services: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.a
-            onClick={() => {
-    const phoneNumber = "+918310124421";
-    const message = encodeURIComponent("Hello! I want a custom event quote."); // your pre-filled message
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(url, "_blank"); // opens WhatsApp in new tab/app
-    
-  }}
-   className="cursor-pointer bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl"
-  whileHover={{ scale: 1.05, y: -2 }}
-  whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  const phoneNumber = "+918310124421";
+                  const message = encodeURIComponent("Hello! I want a custom event quote.");
+                  const url = `https://wa.me/${phoneNumber}?text=${message}`;
+                  window.open(url, "_blank");
+                }}
+                className="cursor-pointer bg-yellow-400 text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Get Custom Quote
               </motion.a>
@@ -178,7 +154,7 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Service Categories */}
+      {/* SERVICE CATEGORIES */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
@@ -208,10 +184,18 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Detailed Service Sections */}
-      <DecorationsSection />
-      <ActivitiesSection />
-      {/* <DanceSection /> */}
+      {/* LAZY-LOADED HEAVY SECTIONS */}
+      <Suspense fallback={<div className="text-center py-10 text-gray-500">Loading Decorations...</div>}>
+        <DecorationsSection />
+      </Suspense>
+
+      <Suspense fallback={<div className="text-center py-10 text-gray-500">Loading Activities...</div>}>
+        <ActivitiesSection />
+      </Suspense>
+
+      {/* <Suspense fallback={<div className="text-center py-10">Loading Dance Section...</div>}>
+        <DanceSection />
+      </Suspense> */}
     </div>
   );
 };

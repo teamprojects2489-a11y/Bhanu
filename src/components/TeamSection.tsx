@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Award, Heart, Star } from 'lucide-react';
-import admin from '../assets/admin.jpg';
+import admin from '../assets/admin.webp';
 
 const TeamSection: React.FC = () => {
   const leader = {
@@ -17,7 +17,7 @@ const TeamSection: React.FC = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
       {/* Floating Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 right-20 text-5xl opacity-15"
           animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
@@ -58,32 +58,27 @@ const TeamSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.02 }}
         >
-          {/* Background Glow */}
-          <motion.div
-            className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-100 via-purple-100 to-yellow-100 opacity-0"
-            whileHover={{ opacity: 0.2, scale: 1.02 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-
           {/* Image */}
-          <div className="relative z-10 ">
-            <img
+          <div className="relative z-10 w-full h-[500px] overflow-hidden rounded-t-3xl">
+            <motion.img
               src={leader.image}
               alt={leader.name}
-              className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-3xl"
-                style={{ objectPosition: 'center 30%' }}
+              loading="lazy"
+              className="w-full h-full object-cover rounded-t-3xl"
+              style={{ objectPosition: 'center 30%', willChange: 'transform' }}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-t-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-t-3xl pointer-events-none" />
 
             {/* Floating Achievement Badge */}
             <motion.div
-              className="absolute top-6 right-6 bg-yellow-400 text-gray-800 px-4 py-1 rounded-full text-sm font-semibold shadow-md"
-              animate={{ scale: [1, 1.1, 1] }}
+              className="absolute top-6 right-6 bg-yellow-400 text-gray-800 px-4 py-1 rounded-full text-sm font-semibold shadow-md flex items-center gap-1"
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <Award className="w-4 h-4 inline mr-1" />
+              <Award className="w-4 h-4" />
               {leader.achievements}
             </motion.div>
           </div>
@@ -91,20 +86,8 @@ const TeamSection: React.FC = () => {
           {/* Content */}
           <div className="p-8 text-center relative z-20">
             <h3 className="text-3xl font-bold text-gray-800 mb-2">
-              <motion.span
-                className="bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent transition-all duration-500"
-                whileHover={{
-                  backgroundPosition: "200% center",
-                  scale: 1.1,
-                  rotate: [0, 2, -2, 0],
-                }}
-                style={{ backgroundSize: "200% auto", display: "inline-block" }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                {leader.name}
-              </motion.span>
+              {leader.name}
             </h3>
-
             <p className="text-indigo-600 font-semibold mb-4 text-lg">{leader.role}</p>
             <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">{leader.description}</p>
 
@@ -123,10 +106,7 @@ const TeamSection: React.FC = () => {
             {/* Rating */}
             <div className="flex justify-center mb-4">
               {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-5 h-5 text-yellow-400 fill-current"
-                />
+                <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
               ))}
             </div>
           </div>

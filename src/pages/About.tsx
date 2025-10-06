@@ -1,21 +1,38 @@
-import React from 'react';
+// About.tsx
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Award, Calendar, Heart } from 'lucide-react';
 import EventDevelopmentProcess from '../components/EventDevelopmentProcess';
+import { useLocation } from 'react-router-dom';
 
 const About: React.FC = () => {
   const stats = [
     { icon: <Calendar className="w-8 h-8" />, number: "500+", label: "Events Organized" },
     { icon: <Users className="w-8 h-8" />, number: "1000+", label: "Happy Clients" },
-    { icon: <Award className="w-8 h-8" />, number: "5+", label: "Years Experience" },
+    { icon: <Award className="w-8 h-8" />, number: "15+", label: "Years Experience" },
     { icon: <Heart className="w-8 h-8" />, number: "100%", label: "Satisfaction Rate" }
   ];
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to hash if present
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   return (
     <div className="pt-20">
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 overflow-hidden">
-        {/* Background Elements */}
         <div className="absolute inset-0">
           <motion.div
             className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-full blur-2xl"
@@ -34,34 +51,19 @@ const About: React.FC = () => {
           />
         </div>
 
-        {/* Floating Elements */}
+        {/* Floating clouds */}
         <motion.div
           className="absolute top-20 right-10 text-4xl opacity-60"
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
+          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           ☁️
         </motion.div>
 
         <motion.div
           className="absolute bottom-20 left-10 text-3xl opacity-60"
-          animate={{ 
-            y: [0, -15, 0],
-            x: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 5, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
+          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
           ☁️
         </motion.div>
@@ -81,14 +83,13 @@ const About: React.FC = () => {
             >
               <span className="text-white font-semibold">✨ Our Story</span>
             </motion.div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              About SB EVENTS
-            </h1>
-            <p className="text-xl text-yellow-200 leading-relaxed">
+
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">About SB EVENTS</h1>
+            <p className="text-xl text-yellow-200 leading-relaxed" id="aboutsectio">
               We are passionate event planners dedicated to creating magical moments and unforgettable experiences. 
               With over 5 years of expertise in the industry, we specialize in transforming your dreams into reality.
             </p>
-            
+
             {/* CTA Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
@@ -141,7 +142,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Event Development Process Section */}
       <EventDevelopmentProcess />
 
       {/* Our Story Section */}
@@ -154,9 +155,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Our Story
-              </h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                SB EVENTS was born from a simple belief: every celebration deserves to be extraordinary. 
                 What started as a small venture has grown into a trusted name in event management, 
@@ -201,7 +200,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
+      {/* Mission & Vision Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -221,6 +220,7 @@ const About: React.FC = () => {
                 and leave lasting memories for our clients and their guests.
               </p>
             </motion.div>
+
             <motion.div
               className="text-center"
               initial={{ opacity: 0, y: 50 }}

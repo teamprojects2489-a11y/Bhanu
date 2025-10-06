@@ -26,13 +26,13 @@ const StatsSection: React.FC = () => {
     },
     { 
       icon: <Award className="w-8 h-8" />, 
-      number: "5+", 
+      number: "15+", 
       label: "Years Experience",
       color: "from-orange-500 to-red-500"
     },
     { 
       icon: <Star className="w-8 h-8" />, 
-      number: "4.9/5", 
+      number: "4.8/5", 
       label: "Average Rating",
       color: "from-yellow-500 to-orange-500"
     },
@@ -51,77 +51,52 @@ const StatsSection: React.FC = () => {
   ];
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Stats counter animation
-      gsap.fromTo(".stat-card",
-        {
-          opacity: 0,
-          y: 50,
-          scale: 0.8
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+  const ctx = gsap.context(() => {
+    // Only run if statsRef.current exists
+    if (!statsRef.current) return;
+
+    // Card fade-in animation
+    gsap.fromTo(".stat-card",
+      { opacity: 0, y: 50, scale: 0.8 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: statsRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
         }
-      );
+      }
+    );
 
-      // Number counting animation
-      const numbers = document.querySelectorAll('.stat-number');
-      numbers.forEach((number) => {
-        const finalValue = number.textContent;
-        const numericValue = parseInt(finalValue?.replace(/[^\d]/g, '') || '0');
-        
-        gsap.fromTo(number, 
-          { textContent: 0 },
-          {
-            textContent: numericValue,
-            duration: 2,
-            ease: "power2.out",
-            snap: { textContent: 1 },
-            scrollTrigger: {
-              trigger: number,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            },
-            onUpdate: function() {
-              if (finalValue?.includes('/')) {
-                number.textContent = `${Math.round(this.targets()[0].textContent * 4.9 / numericValue)}/5`;
-              } else if (finalValue?.includes('%')) {
-                number.textContent = `${Math.round(this.targets()[0].textContent)}%`;
-              } else if (finalValue?.includes('+')) {
-                number.textContent = `${Math.round(this.targets()[0].textContent)}+`;
-              } else {
-                number.textContent = Math.round(this.targets()[0].textContent).toString();
-              }
-            }
-          }
-        );
-      });
+    // Number counting animation
+    const numbers = statsRef.current.querySelectorAll('.stat-number');
+    numbers.forEach((number) => {
+      const finalValue = number.textContent || '';
+      number.textContent = finalValue;
 
-      // Floating animation for stats
-      gsap.to(".stat-card", {
-        y: -5,
-        duration: 2,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1,
-        stagger: 0.2
-      });
+      // ...rest of your GSAP logic...
+    });
 
-    }, sectionRef);
+    // Floating animation for stats
+    gsap.to(".stat-card", {
+      y: -5,
+      duration: 2,
+      ease: "power1.inOut",
+      yoyo: true,
+      repeat: -1,
+      stagger: 0.2
+    });
 
-    return () => ctx.revert();
-  }, []);
+  }, sectionRef);
+
+  return () => ctx.revert();
+}, []);
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white relative overflow-hidden">

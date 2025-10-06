@@ -27,6 +27,7 @@ const ActivitiesSection: React.FC = () => {
     <section id="fun-activities" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4">
         <motion.h2
+        id='fun-activities'
           className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

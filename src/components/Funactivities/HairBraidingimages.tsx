@@ -4,6 +4,15 @@ import { HairBraidingImages } from '../../assets/index';
 
 const HairBraiding: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
+   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+
+  const handleImageClick = (img: string) => {
+    if (window.innerWidth < 768) {
+      setFullscreenImg(img);
+    }
+  };
+
+  const closeFullscreen = () => setFullscreenImg(null);
 
   return (
     <section className="py-20 min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-yellow-100">
@@ -41,6 +50,7 @@ const HairBraiding: React.FC = () => {
               whileHover={{ scale: 1.04 }}
               onMouseEnter={() => setBgImg(img)}
               onMouseLeave={() => setBgImg(null)}
+              onClick={() => handleImageClick(img)}
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-lg border border-white/30 transition-all duration-300 group-hover:shadow-purple-200">
                 <img
@@ -63,6 +73,26 @@ const HairBraiding: React.FC = () => {
           ))}
         </div>
       </div>
+      {/* Fullscreen image modal for mobile */}
+         {fullscreenImg && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
+          <img
+            src={fullscreenImg}
+            alt="Full"
+            className="w-full h-full object-contain" // <-- updated style
+          />
+          {/* Cross button */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2"
+            aria-label="Close"
+          >
+            &#10005;
+          </button>
+          {/* Back button */}
+          
+        </div>
+      )}
     </section>
   );
 };

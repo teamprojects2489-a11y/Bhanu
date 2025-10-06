@@ -27,17 +27,17 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-sky-950/95 backdrop-blur-lg shadow-2xl"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden
+    ${isScrolled
+      ? "bg-sky-950/95 backdrop-blur-lg shadow-2xl"
+      : "bg-transparent"
+    }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+     <div className="container mx-auto px-2 sm:px-4 overflow-x-hidden">
+    <div className="flex items-center justify-between h-16 md:h-20 w-full">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-2 cursor-pointer"
