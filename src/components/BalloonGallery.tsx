@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Ballonimages } from '../assets/index.tsx'; // Array of image URLs
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Ballonimages } from "../assets/index.tsx"; // Array of image URLs
 
 const BalloonGallery: React.FC = () => {
-   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   const handleImageClick = (img: string) => {
     if (window.innerWidth < 768) {
@@ -13,7 +13,7 @@ const BalloonGallery: React.FC = () => {
 
   const closeFullscreen = () => setFullscreenImg(null);
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-purple-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-purple-100">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-pink-700 mb-4"
@@ -24,7 +24,8 @@ const BalloonGallery: React.FC = () => {
           Balloon Decorations Gallery
         </motion.h2>
         <p className="text-xl text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Explore our vibrant and creative balloon decoration ideas for every occasion!
+          Explore our vibrant and creative balloon decoration ideas for every
+          occasion!
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {Ballonimages.map((img: string, idx: number) => (
@@ -45,13 +46,15 @@ const BalloonGallery: React.FC = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pink-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white font-semibold text-lg drop-shadow-lg">Balloon Decor {idx + 1}</span>
+                <span className="text-white font-semibold text-lg drop-shadow-lg">
+                  Balloon Decor {idx + 1}
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-         {fullscreenImg && (
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}

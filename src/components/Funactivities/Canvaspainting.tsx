@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { CanvasPaintingImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { CanvasPaintingImages } from "../../assets/index";
 
 const CanvasPainting: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
@@ -15,7 +15,7 @@ const CanvasPainting: React.FC = () => {
   const closeFullscreen = () => setFullscreenImg(null);
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -91,7 +91,6 @@ const CanvasPainting: React.FC = () => {
             &#10005;
           </button>
           {/* Back button */}
-        
         </div>
       )}
     </section>

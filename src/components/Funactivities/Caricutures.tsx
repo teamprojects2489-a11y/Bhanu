@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { CaricutureImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { CaricutureImages } from "../../assets/index";
 
 const Caricutures: React.FC = () => {
-  
   const [bgImg, setBgImg] = useState<string | null>(null);
   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
@@ -16,7 +15,7 @@ const Caricutures: React.FC = () => {
   const closeFullscreen = () => setFullscreenImg(null);
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-yellow-100 via-orange-100 to-pink-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-yellow-100 via-orange-100 to-pink-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -91,25 +90,24 @@ const Caricutures: React.FC = () => {
           >
             &#10005;
           </button>
-   {fullscreenImg && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
-          <img
-            src={fullscreenImg}
-            alt="Full"
-            className="w-full h-full object-contain" // <-- updated style
-          />
-          {/* Cross button */}
-          <button
-            onClick={closeFullscreen}
-            className="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2"
-            aria-label="Close"
-          >
-            &#10005;
-          </button>
-          {/* Back button */}
-        
-        </div>
-      )}
+          {fullscreenImg && (
+            <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
+              <img
+                src={fullscreenImg}
+                alt="Full"
+                className="w-full h-full object-contain" // <-- updated style
+              />
+              {/* Cross button */}
+              <button
+                onClick={closeFullscreen}
+                className="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2"
+                aria-label="Close"
+              >
+                &#10005;
+              </button>
+              {/* Back button */}
+            </div>
+          )}
         </div>
       )}
     </section>

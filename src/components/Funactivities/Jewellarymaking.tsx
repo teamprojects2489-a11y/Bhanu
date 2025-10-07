@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { JewelryMakingImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { JewelryMakingImages } from "../../assets/index";
 
 const JewelryMaking: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
- const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   const handleImageClick = (img: string) => {
     if (window.innerWidth < 768) {
@@ -14,7 +14,7 @@ const JewelryMaking: React.FC = () => {
 
   const closeFullscreen = () => setFullscreenImg(null);
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-rose-100 via-yellow-100 to-amber-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-rose-100 via-yellow-100 to-amber-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -72,8 +72,8 @@ const JewelryMaking: React.FC = () => {
           ))}
         </div>
       </div>
-      {/* Fullscreen image modal for mobile */ }
-         {fullscreenImg && (
+      {/* Fullscreen image modal for mobile */}
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}
@@ -89,7 +89,6 @@ const JewelryMaking: React.FC = () => {
             &#10005;
           </button>
           {/* Back button */}
-          
         </div>
       )}
     </section>

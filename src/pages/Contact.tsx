@@ -1,34 +1,42 @@
-import React from 'react';
-import ContactSection from '../components/ContactSection';
-import { motion } from 'framer-motion';
-import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+import React, { useEffect } from "react";
+import ContactSection from "../components/ContactSection";
+import { motion } from "framer-motion";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Contact: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location]);
+
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
       details: ["+91 8310124421"],
-      action: "tel:+918310124421"
+      action: "tel:+918310124421",
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
       details: [" srilekhanac@gmail.com"],
-      action: "mailto: srilekhanac@gmail.com"
+      action: "mailto: srilekhanac@gmail.com",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Address",
       details: ["Banglore, KA", "India"],
-      action: null
+      action: null,
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Working Hours",
       details: ["Mon - Sat: 9:00 AM - 8:00 PM", "Sun: 10:00 AM - 6:00 PM"],
-      action: null
-    }
+      action: null,
+    },
   ];
 
   return (
@@ -57,14 +65,14 @@ const Contact: React.FC = () => {
         {/* Floating Contact Icons */}
         <motion.div
           className="absolute top-20 right-10 text-4xl opacity-60"
-          animate={{ 
+          animate={{
             y: [0, -20, 0],
-            rotate: [0, 10, 0]
+            rotate: [0, 10, 0],
           }}
-          transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         >
           ☁️
@@ -72,15 +80,15 @@ const Contact: React.FC = () => {
 
         <motion.div
           className="absolute bottom-20 left-10 text-3xl opacity-60"
-          animate={{ 
+          animate={{
             y: [0, -15, 0],
-            x: [0, 10, 0]
+            x: [0, 10, 0],
           }}
-          transition={{ 
-            duration: 5, 
-            repeat: Infinity, 
+          transition={{
+            duration: 5,
+            repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
           }}
         >
           ☁️
@@ -88,15 +96,15 @@ const Contact: React.FC = () => {
 
         <motion.div
           className="absolute top-1/3 left-1/4 text-2xl opacity-60"
-          animate={{ 
+          animate={{
             rotate: [0, 360],
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
+          transition={{
+            duration: 6,
+            repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         >
           ⭐
@@ -121,9 +129,10 @@ const Contact: React.FC = () => {
               Contact Us
             </h1>
             <p className="text-xl text-yellow-200 leading-relaxed">
-              Ready to plan your dream event? Get in touch with us today and let's create something magical together.
+              Ready to plan your dream event? Get in touch with us today and
+              let's create something magical together.
             </p>
-            
+
             {/* Quick Contact Options */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
@@ -160,7 +169,9 @@ const Contact: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <span className="text-white font-semibold text-sm">⚡ We respond within 2 hours</span>
+              <span className="text-white font-semibold text-sm">
+                ⚡ We respond within 2 hours
+              </span>
             </motion.div>
           </motion.div>
         </div>
@@ -183,11 +194,16 @@ const Contact: React.FC = () => {
                 <div className="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                   {info.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">{info.title}</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">
+                  {info.title}
+                </h3>
                 {info.details.map((detail, detailIndex) => (
                   <p key={detailIndex} className="text-gray-600 text-sm mb-1">
                     {info.action && detailIndex === 0 ? (
-                      <a href={info.action} className="hover:text-blue-600 transition-colors">
+                      <a
+                        href={info.action}
+                        className="hover:text-blue-600 transition-colors"
+                      >
                         {detail}
                       </a>
                     ) : (
@@ -211,25 +227,26 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">           
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Find Us</h2>
-            <div className="bg-white p-4 rounded-2xl shadow-lg">
-              <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
-                <iframe
-                  title="Vidya Nagar, Bangalore Map"
-                  src="https://www.google.com/maps?q=Vidya+Nagar,+Bangalore&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full rounded-xl"
-                ></iframe>
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+              <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+                Find Us
+              </h2>
+              <div className="bg-white p-4 rounded-2xl shadow-lg">
+                <div className="w-full h-96 bg-gray-200 rounded-xl overflow-hidden">
+                  <iframe
+                    title="Vidya Nagar, Bangalore Map"
+                    src="https://www.google.com/maps?q=Vidya+Nagar,+Bangalore&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full rounded-xl"
+                  ></iframe>
+                </div>
               </div>
-            </div>
             </h2>
-       
           </motion.div>
         </div>
       </section>
@@ -249,25 +266,29 @@ const Contact: React.FC = () => {
           >
             Frequently Asked Questions
           </motion.h2>
-          
+
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
                 question: "How far in advance should I book your services?",
-                answer: "We recommend booking at least 2-4 weeks in advance for smaller events and 6-8 weeks for larger celebrations to ensure availability and proper planning."
+                answer:
+                  "We recommend booking at least 2-4 weeks in advance for smaller events and 6-8 weeks for larger celebrations to ensure availability and proper planning.",
               },
               {
                 question: "Do you provide services outside Mumbai?",
-                answer: "Yes, we provide services in Mumbai and surrounding areas. Additional travel charges may apply for locations outside our standard service area."
+                answer:
+                  "Yes, we provide services in Mumbai and surrounding areas. Additional travel charges may apply for locations outside our standard service area.",
               },
               {
                 question: "Can you work within my budget?",
-                answer: "Absolutely! We offer customizable packages to fit various budgets. During our consultation, we'll discuss your requirements and create a plan that works for you."
+                answer:
+                  "Absolutely! We offer customizable packages to fit various budgets. During our consultation, we'll discuss your requirements and create a plan that works for you.",
               },
               {
                 question: "What's included in your decoration services?",
-                answer: "Our decoration services include balloons, flowers, ribbons, lighting, backdrops, and themed decorations. We'll customize based on your event type and preferences."
-              }
+                answer:
+                  "Our decoration services include balloons, flowers, ribbons, lighting, backdrops, and themed decorations. We'll customize based on your event type and preferences.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -277,7 +298,9 @@ const Contact: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">{faq.question}</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                  {faq.question}
+                </h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </motion.div>
             ))}

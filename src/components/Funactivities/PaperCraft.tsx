@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { PaperCraftImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { PaperCraftImages } from "../../assets/index";
 
 const PaperCraft: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
- const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   const handleImageClick = (img: string) => {
     if (window.innerWidth < 768) {
@@ -14,7 +14,7 @@ const PaperCraft: React.FC = () => {
 
   const closeFullscreen = () => setFullscreenImg(null);
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-green-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-green-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -72,7 +72,7 @@ const PaperCraft: React.FC = () => {
         </div>
       </div>
       {/* Fullscreen image for mobile */}
-         {fullscreenImg && (
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}
@@ -87,7 +87,6 @@ const PaperCraft: React.FC = () => {
           >
             &#10005;
           </button>
-        
         </div>
       )}
     </section>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { StageBackdropImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { StageBackdropImages } from "../../assets/index";
 
 const StagebackDrops: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
- const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   const handleImageClick = (img: string) => {
     if (window.innerWidth < 768) {
@@ -14,7 +14,7 @@ const StagebackDrops: React.FC = () => {
 
   const closeFullscreen = () => setFullscreenImg(null);
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-rose-100 via-yellow-100 to-amber-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-rose-100 via-yellow-100 to-amber-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -35,8 +35,8 @@ const StagebackDrops: React.FC = () => {
           STAGE BACKDROPS Gallery
         </motion.h2>
         <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto relative z-10">
-            Dive into our creative and colorful Stage Backdrops !
-            </p>
+          Dive into our creative and colorful Stage Backdrops !
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto relative z-10">
           {StageBackdropImages.map((img: string, idx: number) => (
             <motion.div
@@ -72,7 +72,7 @@ const StagebackDrops: React.FC = () => {
           ))}
         </div>
       </div>
-         {fullscreenImg && (
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}
@@ -88,7 +88,6 @@ const StagebackDrops: React.FC = () => {
             &#10005;
           </button>
           {/* Back button */}
-         
         </div>
       )}
     </section>

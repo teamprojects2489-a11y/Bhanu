@@ -27,7 +27,7 @@ const FlowerDecoration: React.FC = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-fuchsia-100 via-rose-100 to-amber-100 relative overflow-hidden">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-fuchsia-100 via-rose-100 to-amber-100 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Background preview on hover */}
         {bgImg && (

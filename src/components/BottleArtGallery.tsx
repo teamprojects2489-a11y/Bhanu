@@ -1,10 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { BottleArtImages } from '../assets/index'; // Array of image URLs
+import React from "react";
+import { motion } from "framer-motion";
+import { BottleArtImages } from "../assets/index"; // Array of image URLs
 
 const BottleArtGallery: React.FC = () => {
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-blue-100 via-emerald-100 to-indigo-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-blue-100 via-emerald-100 to-indigo-100">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-indigo-700 mb-4"
@@ -15,7 +15,8 @@ const BottleArtGallery: React.FC = () => {
           Bottle Art Gallery
         </motion.h2>
         <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto">
-          Discover our elegant and trending bottle art creations, perfect for modern celebrations and décor.
+          Discover our elegant and trending bottle art creations, perfect for
+          modern celebrations and décor.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {BottleArtImages.map((img: string, idx: number) => (
@@ -35,7 +36,9 @@ const BottleArtGallery: React.FC = () => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-indigo-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span className="text-white font-semibold text-lg drop-shadow-lg">Bottle Art {idx + 1}</span>
+                <span className="text-white font-semibold text-lg drop-shadow-lg">
+                  Bottle Art {idx + 1}
+                </span>
               </div>
             </motion.div>
           ))}

@@ -26,7 +26,7 @@ const EntryArchieves: React.FC = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-fuchsia-100 via-rose-100 to-amber-100 relative overflow-hidden">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-fuchsia-100 via-rose-100 to-amber-100 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Background preview on hover */}
         {bgImg && (
@@ -69,7 +69,6 @@ const EntryArchieves: React.FC = () => {
               onClick={() => handleImageClick(img)}
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-lg border border-white/30 transition-all duration-300 group-hover:shadow-fuchsia-200 min-h-[18rem] flex items-center justify-center relative">
-
                 {/* ✨ Spinner Overlay */}
                 <AnimatePresence>
                   {!loaded[idx] && (
@@ -116,7 +115,11 @@ const EntryArchieves: React.FC = () => {
       {/* 📱 Fullscreen viewer for mobile */}
       {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
-          <img src={fullscreenImg} alt="Full view" className="w-full h-full object-contain" />
+          <img
+            src={fullscreenImg}
+            alt="Full view"
+            className="w-full h-full object-contain"
+          />
           <button
             onClick={closeFullscreen}
             className="absolute top-4 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2"

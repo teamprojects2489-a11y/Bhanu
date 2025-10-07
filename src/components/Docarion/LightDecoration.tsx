@@ -26,7 +26,7 @@ const Lightdecors: React.FC = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100 relative overflow-hidden">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Dynamic background preview */}
         {bgImg && (
@@ -51,7 +51,8 @@ const Lightdecors: React.FC = () => {
         </motion.h2>
 
         <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto relative z-10">
-          Explore our dazzling light decoration designs that illuminate and elevate any celebration!
+          Explore our dazzling light decoration designs that illuminate and
+          elevate any celebration!
         </p>
 
         {/* Image Grid */}
@@ -73,7 +74,6 @@ const Lightdecors: React.FC = () => {
               onClick={() => handleImageClick(img)}
             >
               <div className="rounded-3xl overflow-hidden shadow-2xl bg-white/60 backdrop-blur-lg border border-white/30 transition-all duration-300 group-hover:shadow-indigo-200 min-h-[18rem] flex items-center justify-center relative">
-
                 {/* Spinner */}
                 <AnimatePresence>
                   {!loaded[idx] && (

@@ -1,44 +1,70 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 // Lazy load heavy sections
-const DecorationsSection = lazy(() => import("../components/DecorationsSection"));
+const DecorationsSection = lazy(
+  () => import("../components/DecorationsSection")
+);
 const ActivitiesSection = lazy(() => import("../components/ActivitiesSection"));
 // const DanceSection = lazy(() => import("../components/DanceSection"));
 
 const Services: React.FC = () => {
+  const location = useLocation();
+
   useEffect(() => {
+    // If there's a hash, scroll to that section after a delay
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 800); // Increased delay to allow top scroll to complete first
       }
     }
-  }, [location]);
+  }, [location.pathname, location.hash]); // More specific dependencies
 
   const serviceCategories = [
     {
       title: "Event Planning",
       description: "Complete event planning from concept to execution",
-      features: ["Venue Selection", "Timeline Management", "Vendor Coordination", "Budget Planning"]
+      features: [
+        "Venue Selection",
+        "Timeline Management",
+        "Vendor Coordination",
+        "Budget Planning",
+      ],
     },
     {
       title: "Decoration Services",
       description: "Beautiful decorations to transform your venue",
-      features: ["Balloon Arrangements", "Floral Decorations", "Lighting Setup", "Theme Design"]
+      features: [
+        "Balloon Arrangements",
+        "Floral Decorations",
+        "Lighting Setup",
+        "Theme Design",
+      ],
     },
     {
       title: "Entertainment",
       description: "Engaging entertainment for all age groups",
-      features: ["Dance Performances", "Live Music", "Games & Activities", "Photo Booths"]
+      features: [
+        "Dance Performances",
+        "Live Music",
+        "Games & Activities",
+        "Photo Booths",
+      ],
     },
     {
       title: "Catering Coordination",
       description: "Delicious food arrangements for your guests",
-      features: ["Menu Planning", "Vendor Selection", "Service Coordination", "Special Dietary Needs"]
-    }
+      features: [
+        "Menu Planning",
+        "Vendor Selection",
+        "Service Coordination",
+        "Special Dietary Needs",
+      ],
+    },
   ];
 
   return (
@@ -75,14 +101,24 @@ const Services: React.FC = () => {
         <motion.div
           className="absolute bottom-20 right-10 text-3xl opacity-60"
           animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
         >
           ☁️
         </motion.div>
         <motion.div
           className="absolute top-1/2 left-10 text-2xl opacity-60"
           animate={{ rotate: [0, 360], scale: [1, 1.2, 1] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
         >
           ⭐
         </motion.div>
@@ -106,8 +142,9 @@ const Services: React.FC = () => {
               Our Services
             </h1>
             <p className="text-xl text-yellow-200 leading-relaxed">
-              From intimate gatherings to grand celebrations, we offer comprehensive event management services 
-              tailored to make your special day unforgettable.
+              From intimate gatherings to grand celebrations, we offer
+              comprehensive event management services tailored to make your
+              special day unforgettable.
             </p>
 
             {/* Service Highlights */}
@@ -117,14 +154,21 @@ const Services: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              {['🎈 Decorations', '🎨 Activities', '💃 Entertainment', '🍽️ Catering'].map((service, index) => (
+              {[
+                "🎈 Decorations",
+                "🎨 Activities",
+                "💃 Entertainment",
+                "🍽️ Catering",
+              ].map((service, index) => (
                 <motion.div
                   key={index}
                   className="bg-yellow-400/10 backdrop-blur-sm border border-yellow-400/30 rounded-xl p-4"
                   whileHover={{ scale: 1.05, y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span className="text-white font-semibold text-sm">{service}</span>
+                  <span className="text-white font-semibold text-sm">
+                    {service}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
@@ -139,7 +183,9 @@ const Services: React.FC = () => {
               <motion.a
                 onClick={() => {
                   const phoneNumber = "+918310124421";
-                  const message = encodeURIComponent("Hello! I want a custom event quote.");
+                  const message = encodeURIComponent(
+                    "Hello! I want a custom event quote."
+                  );
                   const url = `https://wa.me/${phoneNumber}?text=${message}`;
                   window.open(url, "_blank");
                 }}
@@ -168,11 +214,16 @@ const Services: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{category.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  {category.title}
+                </h3>
                 <p className="text-gray-600 mb-6">{category.description}</p>
                 <ul className="space-y-2">
                   {category.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
+                    <li
+                      key={featureIndex}
+                      className="flex items-center space-x-3"
+                    >
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <span className="text-gray-700">{feature}</span>
                     </li>
@@ -185,11 +236,23 @@ const Services: React.FC = () => {
       </section>
 
       {/* LAZY-LOADED HEAVY SECTIONS */}
-      <Suspense fallback={<div className="text-center py-10 text-gray-500">Loading Decorations...</div>}>
+      <Suspense
+        fallback={
+          <div className="text-center py-10 text-gray-500">
+            Loading Decorations...
+          </div>
+        }
+      >
         <DecorationsSection />
       </Suspense>
 
-      <Suspense fallback={<div className="text-center py-10 text-gray-500">Loading Activities...</div>}>
+      <Suspense
+        fallback={
+          <div className="text-center py-10 text-gray-500">
+            Loading Activities...
+          </div>
+        }
+      >
         <ActivitiesSection />
       </Suspense>
 

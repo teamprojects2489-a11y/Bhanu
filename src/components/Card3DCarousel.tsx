@@ -112,7 +112,13 @@ const Card3DCarousel: React.FC = () => {
       (prev) => (prev - 1 + eventCards.length) % eventCards.length
     );
   const goToCard = (index: number) => setCurrentIndex(index);
-  const handleClick = () => navigate(`/services#decoration`);
+  const handleClick = () => {
+    // Scroll to top first, then navigate
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      navigate(`/services#decoration`);
+    }, 300);
+  };
 
   return (
     <section className="py-20 bg-black relative overflow-hidden">

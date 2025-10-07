@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { KeychainMakingImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { KeychainMakingImages } from "../../assets/index";
 
 const KeyChainMaking: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
-   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
 
   const handleImageClick = (img: string) => {
     if (window.innerWidth < 768) {
@@ -15,7 +15,7 @@ const KeyChainMaking: React.FC = () => {
   const closeFullscreen = () => setFullscreenImg(null);
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-yellow-100 via-amber-100 to-orange-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-yellow-100 via-amber-100 to-orange-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -72,7 +72,7 @@ const KeyChainMaking: React.FC = () => {
           ))}
         </div>
       </div>
-         {fullscreenImg && (
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}
@@ -88,7 +88,6 @@ const KeyChainMaking: React.FC = () => {
             &#10005;
           </button>
           {/* Back button */}
-          
         </div>
       )}
     </section>

@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { CartoonCharacterImages } from '../../assets/index';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { CartoonCharacterImages } from "../../assets/index";
 
 const CartoonCharacters: React.FC = () => {
   const [bgImg, setBgImg] = useState<string | null>(null);
-   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
-  
-    const handleImageClick = (img: string) => {
-      if (window.innerWidth < 768) {
-        setFullscreenImg(img);
-      }
-    };
-  
-    const closeFullscreen = () => setFullscreenImg(null);
+  const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
+
+  const handleImageClick = (img: string) => {
+    if (window.innerWidth < 768) {
+      setFullscreenImg(img);
+    }
+  };
+
+  const closeFullscreen = () => setFullscreenImg(null);
 
   return (
-    <section className="py-20 min-h-screen bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100">
+    <section className="py-40 min-h-screen bg-gradient-to-br from-indigo-100 via-pink-100 to-yellow-100">
       <div className="container mx-auto px-4 relative">
         {/* Dynamic background image on hover */}
         {bgImg && (
@@ -36,7 +36,8 @@ const CartoonCharacters: React.FC = () => {
           Cartoon Characters Gallery
         </motion.h2>
         <p className="text-xl text-center text-gray-700 mb-12 max-w-2xl mx-auto relative z-10">
-          Meet our fun and lively cartoon characters that bring every event to life!
+          Meet our fun and lively cartoon characters that bring every event to
+          life!
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto relative z-10">
           {CartoonCharacterImages.map((img: string, idx: number) => (
@@ -47,7 +48,10 @@ const CartoonCharacters: React.FC = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: idx * 0.09 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.04, boxShadow: "0 8px 32px 0 rgba(99, 102, 241, 0.18)" }}
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 8px 32px 0 rgba(99, 102, 241, 0.18)",
+              }}
               onMouseEnter={() => setBgImg(img)}
               onMouseLeave={() => setBgImg(null)}
               onClick={() => handleImageClick(img)}
@@ -74,7 +78,7 @@ const CartoonCharacters: React.FC = () => {
         </div>
       </div>
       {/* Fullscreen image modal for mobile */}
-         {fullscreenImg && (
+      {fullscreenImg && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 md:hidden">
           <img
             src={fullscreenImg}
@@ -90,7 +94,6 @@ const CartoonCharacters: React.FC = () => {
             &#10005;
           </button>
           {/* Back button */}
-         
         </div>
       )}
     </section>

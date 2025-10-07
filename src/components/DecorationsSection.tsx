@@ -1,21 +1,50 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-  import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 const DecorationsSection: React.FC = () => {
   const navigate = useNavigate();
   const decorations = [
-  { name: "Balloons Decorations", icon: "🎈", color: "from-red-400 to-pink-500", slug: "balloons" },
-  { name: "Flower Decorations", icon: "🌸", color: "from-pink-400 to-rose-500", slug: "flowers" },
-  { name: "Ribbons", icon: "🎀", color: "from-purple-400 to-indigo-500", slug: "ribbons" },
-  { name: "Lights", icon: "💡", color: "from-yellow-400 to-orange-500", slug: "lights" },
-  { name: "Stage Backdrop", icon: "🎭", color: "from-blue-400 to-cyan-500", slug: "stage-backdrop" },
-  { name: "Entry Arches", icon: "🌉", color: "from-green-400 to-teal-500", slug: "entry-arches" }
-];
-
+    {
+      name: "Balloons Decorations",
+      icon: "🎈",
+      color: "from-red-400 to-pink-500",
+      slug: "balloons",
+    },
+    {
+      name: "Flower Decorations",
+      icon: "🌸",
+      color: "from-pink-400 to-rose-500",
+      slug: "flowers",
+    },
+    {
+      name: "Ribbons",
+      icon: "🎀",
+      color: "from-purple-400 to-indigo-500",
+      slug: "ribbons",
+    },
+    {
+      name: "Lights",
+      icon: "💡",
+      color: "from-yellow-400 to-orange-500",
+      slug: "lights",
+    },
+    {
+      name: "Stage Backdrop",
+      icon: "🎭",
+      color: "from-blue-400 to-cyan-500",
+      slug: "stage-backdrop",
+    },
+    {
+      name: "Entry Arches",
+      icon: "🌉",
+      color: "from-green-400 to-teal-500",
+      slug: "entry-arches",
+    },
+  ];
 
   return (
     <section id="decoration" className="py-20 bg-white">
-      <div className="container mx-auto px-4" >
+      <div className="container mx-auto px-4">
         <motion.h2
           className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4"
           initial={{ opacity: 0, y: 50 }}
@@ -25,7 +54,7 @@ const DecorationsSection: React.FC = () => {
         >
           Decorations
         </motion.h2>
-        
+
         <motion.p
           className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
@@ -38,18 +67,22 @@ const DecorationsSection: React.FC = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
           {decorations.map((item, index) => (
-            
             <motion.div
               key={item.name}
-            onClick={() => navigate(`/decorations/${item.slug}`)}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                navigate(`/decorations/${item.slug}`);
+              }}
               className="relative group cursor-pointer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-            >  
-              <div className={`bg-gradient-to-br ${item.color} p-6 rounded-2xl shadow-lg transform transition-all duration-300 group-hover:shadow-xl`}>
+            >
+              <div
+                className={`bg-gradient-to-br ${item.color} p-6 rounded-2xl shadow-lg transform transition-all duration-300 group-hover:shadow-xl`}
+              >
                 <div className="text-center text-white">
                   <div className="text-4xl mb-4 group-hover:animate-bounce">
                     {item.icon}
