@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Lightbulb, Calendar, CheckCircle, Users, Star } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  MessageCircle,
+  Lightbulb,
+  Calendar,
+  CheckCircle,
+  Users,
+  Star,
+} from "lucide-react";
 import cevent from "../assets/indiancorporateevent/icv.webp";
 import festival from "../assets/festival/indfes.webp";
-import eve from '../assets/eventcons/eve1.webp';
-import eve1 from '../assets/eventcons/ev2.webp';
-import eve2 from '../assets/eventcons/eve2.webp';
-import eve4 from '../assets/eventcons/eve4.webp';
+import eve from "../assets/eventcons/eve1.webp";
+import eve1 from "../assets/eventcons/ev2.webp";
+import eve2 from "../assets/eventcons/eve2.webp";
+import eve4 from "../assets/eventcons/eve4.webp";
 
 const EventJourneyCarousel: React.FC = () => {
   const [activeStep, setActiveStep] = useState(3);
@@ -15,26 +22,29 @@ const EventJourneyCarousel: React.FC = () => {
     {
       id: 1,
       title: "Initial Consultation",
-      description: "Advanced event consultation and project requirements analysis",
+      description:
+        "Advanced event consultation and project requirements analysis",
       icon: <MessageCircle className="w-6 h-6" />,
       image: eve,
-      step: "Step 1 of 6"
+      step: "Step 1 of 6",
     },
     {
       id: 2,
       title: "Design & Development",
-      description: "Custom event design and architecture development with expert guidance",
+      description:
+        "Custom event design and architecture development with expert guidance",
       icon: <Lightbulb className="w-6 h-6" />,
       image: eve2,
-      step: "Step 2 of 6"
+      step: "Step 2 of 6",
     },
     {
       id: 3,
       title: "Planning & Coordination",
-      description: "Real-world event planning and comprehensive coordination phases",
+      description:
+        "Real-world event planning and comprehensive coordination phases",
       icon: <Calendar className="w-6 h-6" />,
       image: eve1,
-      step: "Step 3 of 6"
+      step: "Step 3 of 6",
     },
     {
       id: 4,
@@ -42,15 +52,16 @@ const EventJourneyCarousel: React.FC = () => {
       description: "Complete verification process and performance validation",
       icon: <CheckCircle className="w-6 h-6" />,
       image: cevent,
-      step: "Step 4 of 6"
+      step: "Step 4 of 6",
     },
     {
       id: 5,
       title: "Event Support",
-      description: "Production planning and event execution process optimization",
+      description:
+        "Production planning and event execution process optimization",
       icon: <Users className="w-6 h-6" />,
       image: festival,
-      step: "Step 5 of 6"
+      step: "Step 5 of 6",
     },
     {
       id: 6,
@@ -58,19 +69,19 @@ const EventJourneyCarousel: React.FC = () => {
       description: "Final event assistance and ongoing technical support",
       icon: <Star className="w-6 h-6" />,
       image: eve4,
-      step: "Step 6 of 6"
-    }
+      step: "Step 6 of 6",
+    },
   ];
 
   // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep(prev => (prev % journeySteps.length) + 1);
+      setActiveStep((prev) => (prev % journeySteps.length) + 1);
     }, 4000);
     return () => clearInterval(interval);
   }, [journeySteps.length]);
 
-  const activeStepData = journeySteps.find(step => step.id === activeStep);
+  const activeStepData = journeySteps.find((step) => step.id === activeStep);
 
   const handleStepClick = (id: number) => setActiveStep(id);
 
@@ -89,8 +100,9 @@ const EventJourneyCarousel: React.FC = () => {
             Your Journey At <span className="text-yellow-600">SB EVENTS</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive event solutions, expert guidance, and consistent innovation – your 
-            success depends on the expertise and dedication we bring to every project.
+            Comprehensive event solutions, expert guidance, and consistent
+            innovation – your success depends on the expertise and dedication we
+            bring to every project.
           </p>
         </motion.div>
 
@@ -130,9 +142,6 @@ const EventJourneyCarousel: React.FC = () => {
                   </div>
                   <span className="font-semibold">{activeStepData?.title}</span>
                 </motion.div>
-                <p className="text-white text-sm mt-2 bg-black/20 backdrop-blur-sm rounded px-3 py-1 inline-block">
-                  {activeStepData?.step}
-                </p>
               </div>
             </motion.div>
 
@@ -144,35 +153,45 @@ const EventJourneyCarousel: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {journeySteps.map(step => (
+              {journeySteps.map((step) => (
                 <motion.div
                   key={step.id}
                   id={`step-${step.id}`}
                   className={`relative cursor-pointer transition-all duration-300 ${
                     activeStep === step.id
-                      ? 'bg-yellow-50 border-l-4 border-yellow-600'
-                      : 'bg-gray-50 border-l-4 border-gray-200 hover:border-yellow-300'
+                      ? "bg-yellow-50 border-l-4 border-yellow-600"
+                      : "bg-gray-50 border-l-4 border-gray-200 hover:border-yellow-300"
                   }`}
                   onClick={() => handleStepClick(step.id)}
                   whileHover={{ x: 5 }}
                 >
                   <div className="p-4 sm:p-6 flex items-start space-x-4">
-                    <div className={`p-3 rounded-full ${
-                      activeStep === step.id
-                        ? 'bg-yellow-600 text-white'
-                        : 'bg-gray-300 text-gray-600'
-                    }`}>
+                    <div
+                      className={`p-3 rounded-full ${
+                        activeStep === step.id
+                          ? "bg-yellow-600 text-white"
+                          : "bg-gray-300 text-gray-600"
+                      }`}
+                    >
                       {step.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className={`text-lg font-semibold mb-2 ${
-                        activeStep === step.id ? 'text-yellow-800' : 'text-gray-700'
-                      }`}>
+                      <h3
+                        className={`text-lg font-semibold mb-2 ${
+                          activeStep === step.id
+                            ? "text-yellow-800"
+                            : "text-gray-700"
+                        }`}
+                      >
                         {step.title}
                       </h3>
-                      <p className={`text-sm leading-relaxed ${
-                        activeStep === step.id ? 'text-yellow-600' : 'text-gray-500'
-                      }`}>
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          activeStep === step.id
+                            ? "text-yellow-600"
+                            : "text-gray-500"
+                        }`}
+                      >
                         {step.description}
                       </p>
                     </div>
@@ -199,7 +218,7 @@ const EventJourneyCarousel: React.FC = () => {
             viewport={{ once: true }}
           >
             <div className="flex space-x-2">
-              {journeySteps.map(step => (
+              {journeySteps.map((step) => (
                 <motion.button
                   key={step.id}
                   onClick={() => handleStepClick(step.id)}

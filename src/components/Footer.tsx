@@ -1,37 +1,42 @@
 // Footer.tsx
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Instagram, Phone } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { motion } from "framer-motion";
+import { Instagram, Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
 
   const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about#aboutsectio' },
-    { name: 'Services', path: '/services' },
-    { name: 'Contact', path: '/contact' }
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about#aboutsectio" },
+    { name: "Services", path: "/services" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const socialLinks = [
-    { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/sbe.vents/?utm_source=qr", label: "Instagram" }
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      href: "https://www.instagram.com/sbe.vents/?utm_source=qr",
+      label: "Instagram",
+    },
   ];
 
-const handleNavigation = (path: string) => {
-  const [route, hash] = path.split('#');
-  navigate(route); // navigate to the route first
-  if (hash) {
-    setTimeout(() => { // small delay to let route render
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  } else {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-};
+  const handleNavigation = (path: string) => {
+    const [route, hash] = path.split("#");
+    navigate(route); // navigate to the route first
+    if (hash) {
+      setTimeout(() => {
+        // small delay to let route render
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="bg-gradient-to-br from-sky-800 via-sky-900 to-sky-950 py-16">
@@ -48,7 +53,8 @@ const handleNavigation = (path: string) => {
             Ready to Create Magic?
           </h2>
           <p className="text-lg text-sky-200 mb-8 max-w-2xl mx-auto">
-            From concept to celebration, we've got you covered. Partner with SB EVENTS for world-class event planning and management solutions.
+            From concept to celebration, we've got you covered. Partner with SB
+            EVENTS for world-class event planning and management solutions.
           </p>
           <motion.a
             href="https://wa.me/918310124421?text=Hi%20SB%20Events%2C%20please%20share%20more%20details%20about%20your%20services."
@@ -59,8 +65,18 @@ const handleNavigation = (path: string) => {
             whileTap={{ scale: 0.95 }}
           >
             Book a Consultation
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </motion.a>
         </motion.div>
@@ -96,7 +112,7 @@ const handleNavigation = (path: string) => {
             <motion.a
               key={index}
               href={social.href}
-              target='_blank'
+              target="_blank"
               className="bg-red-950 hover:bg-red-800 text-yellow-300 p-3 rounded-full transition-all duration-300 border border-yellow-600/30"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -111,7 +127,9 @@ const handleNavigation = (path: string) => {
         <div className="flex flex-col md:flex-row justify-center gap-12 items-center text-yellow-200">
           <p className="flex items-center gap-3">
             <Phone className="w-5 h-5 text-green-400" />
-            <a href="tel:8897399259" className="hover:underline">8897399259</a>
+            <a href="tel:8897399259" className="hover:underline">
+              8897399259
+            </a>
           </p>
           <p>
             <a href="mailto:srilekhanac@gmail.com" className="hover:underline">

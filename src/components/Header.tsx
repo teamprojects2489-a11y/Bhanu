@@ -28,16 +28,19 @@ const Header: React.FC = () => {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden
-    ${isScrolled
-      ? "bg-sky-950/95 backdrop-blur-lg shadow-2xl"
-      : "bg-transparent"
+    ${
+      location.pathname === "/"
+        ? isScrolled
+          ? "bg-sky-800 backdrop-blur-lg shadow-2xl"
+          : "bg-transparent"
+        : "bg-sky-800 backdrop-blur-lg shadow-2xl"
     }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-     <div className="container mx-auto px-2 sm:px-4 overflow-x-hidden">
-    <div className="flex items-center justify-between h-16 md:h-20 w-full">
+      <div className="container mx-auto px-2 sm:px-4 overflow-x-hidden">
+        <div className="flex items-center justify-between h-16 md:h-20 w-full">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-2 cursor-pointer"
@@ -45,7 +48,11 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/" className="flex items-center space-x-2">
-              <img src={logo} alt="Logo" className="w-10 h-10 drop-shadow-lg rounded-full" />
+              <img
+                src={logo}
+                alt="Logo"
+                className="w-10 h-10 drop-shadow-lg rounded-full"
+              />
               <div>
                 <h1
                   className={`text-xl md:text-2xl font-extrabold tracking-wide bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent`}
@@ -72,7 +79,11 @@ const Header: React.FC = () => {
                 className={`
                   relative font-semibold text-lg tracking-wide
                   transition-all duration-300
-                  ${location.pathname === item.path ? "text-pink-400" : "text-yellow-200"}
+                  ${
+                    location.pathname === item.path
+                      ? "text-pink-400"
+                      : "text-yellow-200"
+                  }
                   hover:text-orange-400
                   after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-gradient-to-r from-pink-500 to-orange-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full
                 `}
@@ -88,9 +99,10 @@ const Header: React.FC = () => {
               href="tel:+918310124421"
               className={`
                 flex items-center space-x-2 px-5 py-2 rounded-full font-semibold shadow-lg transform transition-all duration-300
-                ${isScrolled
-                  ? "bg-gradient-to-r from-pink-600 to-red-400 text-white hover:scale-105 hover:shadow-pink-500/50"
-                  : "bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:scale-105 hover:shadow-yellow-400/50"
+                ${
+                  isScrolled
+                    ? "bg-gradient-to-r from-pink-600 to-red-400 text-white hover:scale-105 hover:shadow-pink-500/50"
+                    : "bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:scale-105 hover:shadow-yellow-400/50"
                 }
               `}
             >
