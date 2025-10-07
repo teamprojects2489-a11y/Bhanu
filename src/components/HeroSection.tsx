@@ -1,89 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import CloudElements from "./CloudElements";
-gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const taglineRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero title animation with typing effect
-      gsap.fromTo(
-        titleRef.current,
-        {
-          opacity: 0,
-          y: 100,
-          scale: 0.8,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.5,
-          ease: "back.out(1.7)",
-          delay: 0.5,
-        }
-      );
-
-      // Tagline animation
-      gsap.fromTo(
-        taglineRef.current,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          delay: 1.2,
-        }
-      );
-
-      // Button animation with bounce
-      gsap.fromTo(
-        buttonRef.current,
-        {
-          opacity: 0,
-          scale: 0,
-          rotation: -180,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 0.8,
-          ease: "back.out(2)",
-          delay: 1.8,
-        }
-      );
-
-      // Continuous floating animation for the entire hero
-      gsap.to(heroRef.current, {
-        y: -20,
-        duration: 3,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1,
-      });
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
-    <section
+    <motion.section
       ref={heroRef}
       id="home"
       className="relative min-h-screen overflow-hidden"
+      animate={{ y: [0, -20, 0] }}
+      transition={{ 
+        duration: 3, 
+        repeat: Infinity, 
+        ease: "easeInOut" 
+      }}
     >
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -148,19 +81,35 @@ const HeroSection: React.FC = () => {
             🎈
           </motion.div>
 
-          <h1
-            ref={titleRef}
+          <motion.h1
             className="text-6xl md:text-8xl lg:text-9xl font-bold text-white drop-shadow-lg mb-6"
+            initial={{ opacity: 0, y: 100, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              duration: 1.5, 
+              delay: 0.5,
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
             SB <span className="text-yellow-300">Events</span>
-          </h1>
+          </motion.h1>
 
-          <p
-            ref={taglineRef}
+          <motion.p
             className="text-2xl md:text-4xl text-yellow-200 drop-shadow-md font-medium italic mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 1, 
+              delay: 1.2,
+              type: "spring",
+              damping: 20,
+              stiffness: 100
+            }}
           >
             Where the Joy Meets the Sky
-          </p>
+          </motion.p>
 
           {/* Floating Balloons */}
           <motion.div
@@ -206,7 +155,7 @@ const HeroSection: React.FC = () => {
           <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

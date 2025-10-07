@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { X, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Gallery: React.FC = () => {
   const navigate = useNavigate();
@@ -198,36 +194,6 @@ const Gallery: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Gallery grid animation
-      gsap.fromTo(
-        ".gallery-item",
-        {
-          opacity: 0,
-          scale: 0.8,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "back.out(1.7)",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: galleryRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [filteredImages]);
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50">
       {/* Hero Section */}
@@ -304,10 +270,17 @@ const Gallery: React.FC = () => {
                   `}
                   onClick={() => openLightbox(index)}
                   layout
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    type: "spring",
+                    damping: 20,
+                    stiffness: 100,
+                  }}
+                  viewport={{ once: true }}
                   whileHover={{ scale: 1.02, y: -5 }}
                 >
                   <img

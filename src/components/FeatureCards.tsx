@@ -1,15 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useNavigate } from 'react-router-dom';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const FeatureCards: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const cardsRef = useRef<HTMLDivElement[]>([]);
   const navigate = useNavigate();
 
   const features = [
@@ -22,68 +16,6 @@ const FeatureCards: React.FC = () => {
     navigate(slug);
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate title
-      if (titleRef.current) {
-        gsap.fromTo(titleRef.current,
-          { opacity: 0, y: 50, scale: 0.8 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: titleRef.current,
-              start: "top 80%",
-            },
-            willChange: "opacity, transform",
-          }
-        );
-      }
-
-      // Animate cards in view
-      const visibleCards = gsap.utils.toArray(".feature-card") as HTMLElement[];
-      visibleCards.forEach(card => gsap.set(card, { willChange: "opacity, transform" }));
-
-      gsap.fromTo(
-        visibleCards,
-        { opacity: 0, y: 50, rotation: -5, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          rotation: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-          },
-        }
-      );
-
-      // Floating animations only on hover-enabled elements
-      visibleCards.forEach(card => {
-        const icon = card.querySelector(".floating-icon") as HTMLElement;
-        if (icon) {
-          gsap.to(icon, {
-            y: -2,
-            duration: 6,
-            ease: "power1.inOut",
-            yoyo: true,
-            repeat: -1,
-            willChange: "transform",
-          });
-        }
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 relative overflow-hidden">
       {/* Background Decorations */}
@@ -94,9 +26,15 @@ const FeatureCards: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <h2 ref={titleRef} className="text-4xl md:text-6xl font-bold text-center text-gray-800 mb-4">
+        <motion.h2 
+          className="text-4xl md:text-6xl font-bold text-center text-gray-800 mb-4"
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, type: "spring", damping: 20, stiffness: 100 }}
+          viewport={{ once: true }}
+        >
           Our <span className="text-yellow-600">Amazing</span> Services ✨
-        </h2>
+        </motion.h2>
 
         <motion.p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto leading-relaxed" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }}>
           From magical decorations to fun activities, we create unforgettable experiences
@@ -104,14 +42,36 @@ const FeatureCards: React.FC = () => {
 
         {/* Cards Container */}
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <div key={feature.id} className="flex justify-center w-full md:w-[30%]">
-              <div ref={el => cardsRef.current[index] = el!} className={`feature-card relative group cursor-pointer w-full bg-gradient-to-br ${feature.gradient} p-8 rounded-3xl shadow-xl transform transition-all duration-500 group-hover:shadow-2xl overflow-hidden`}>
+              <motion.div 
+                initial={{ opacity: 0, y: 50, rotate: -5, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+                transition={{ duration: 0.8, type: "spring", damping: 20, stiffness: 100 }}
+                viewport={{ once: true }}
+                className={`feature-card relative group cursor-pointer w-full bg-gradient-to-br ${feature.gradient} p-8 rounded-3xl shadow-xl transform transition-all duration-500 group-hover:shadow-2xl overflow-hidden`}
+                whileHover={{ scale: 1.05, rotateY: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-8 -translate-x-8"></div>
 
                 <div className="text-center text-white" onClick={(e) => handleClick(e, feature.slug)}>
-                  <motion.div className="floating-icon text-6xl mb-6" animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>{feature.icon}</motion.div>
+                  <motion.div 
+                    className="floating-icon text-6xl mb-6" 
+                    animate={{ 
+                      scale: [1, 1.1, 1], 
+                      rotate: [0, 5, 0],
+                      y: [0, -5, 0]
+                    }} 
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity, 
+                      ease: "easeInOut" 
+                    }}
+                  >
+                    {feature.icon}
+                  </motion.div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 group-hover:scale-105 transition-transform duration-300">{feature.title}</h3>
                   <p className="text-lg mb-8 opacity-90 leading-relaxed">{feature.description}</p>
                   <motion.button onClick={() => handleClick(null, feature.slug)} className="bg-white text-gray-800 px-6 py-3 rounded-full font-bold hover:bg-yellow-100 transition-all duration-300 transform hover:scale-105 shadow-lg" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>{feature.buttonText}</motion.button>
@@ -120,7 +80,7 @@ const FeatureCards: React.FC = () => {
                 {/* Hover decorations */}
                 <motion.div className="absolute -top-4 -right-4 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" animate={{ rotate: [0, 10, 0, -10, 0], scale: [1, 1.2, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>✨</motion.div>
                 <motion.div className="absolute -bottom-2 -left-2 text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" animate={{ y: [0, -5, 0], rotate: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>🌟</motion.div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
