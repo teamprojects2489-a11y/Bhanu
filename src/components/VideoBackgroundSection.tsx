@@ -44,7 +44,7 @@ const VideoBackgroundSection: React.FC = () => {
               CALL US
             </a>
             <a
-              href="https://wa.me/918310124421?text=Hi%20Bhanu%20Events%2C%20I'm%20interested%20in%20planning%20an%20event!"
+              href="https://wa.me/918310124421?text=Hi%SBeevents%20Events%2C%20I'm%20interested%20in%20planning%20an%20event!"
               target="_blank"
               rel="noopener noreferrer"
               className="w-32 h-32 rounded-full border-2 border-green-400/60 flex items-center justify-center text-green-400 hover:border-green-400 hover:bg-green-400/10 transition-all duration-300 backdrop-blur-sm"

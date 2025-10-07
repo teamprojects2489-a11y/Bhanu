@@ -115,7 +115,7 @@ const handleNavigation = (path: string) => {
           </p>
           <p>
             <a href="mailto:srilekhanac@gmail.com" className="hover:underline">
-              srilekhanac@gmail.com
+              team.projects9@gmail.com
             </a>
           </p>
         </div>
