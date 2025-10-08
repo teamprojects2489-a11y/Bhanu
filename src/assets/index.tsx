@@ -64,7 +64,6 @@ import f1 from './facepaintying/f1.webp';
 import f2 from './facepaintying/f2.webp';
 import f3 from './facepaintying/f3.webp';
 import f4 from './facepaintying/f4.webp';
-import f5 from './facepaintying/f5.webp';
 import f6 from './facepaintying/f6.webp';
 import f7 from './facepaintying/f7.webp';
 import f8 from './facepaintying/f8.webp';
@@ -378,7 +377,7 @@ export const BraceletMakingImages = [
 ];
 
 export const FacePaintImages = [
-  f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
+  f1, f2, f3, f4, f6, f7, f8, f9, f10,
   f11, f12, f13, f14, f15, f16, f17, f18, f19, f20, f21
 ];
 
