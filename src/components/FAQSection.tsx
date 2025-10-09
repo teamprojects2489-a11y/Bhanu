@@ -40,7 +40,7 @@ const faqs = [
 const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleFAQ = (index: number) => {
+  const ThisisOnclick = (index: number) => {
   setOpenIndex(prev => (prev === index ? null : index));
 };
 
@@ -91,7 +91,7 @@ const FAQSection: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-purple-100 hover:shadow-xl transition-all duration-300">
                 <button
                   type="button"
-                  onClick={() => toggleFAQ(index)}
+                  onClick={() => ThisisOnclick(index)}
                   className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-purple-50 transition-all duration-300 group"
                 >
                   <h3 className="text-lg md:text-xl font-bold text-gray-800 pr-4 group-hover:text-purple-700 transition-colors duration-300">
