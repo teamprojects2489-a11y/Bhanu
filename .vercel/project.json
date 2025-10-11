@@ -1,1 +1,8 @@
-{"projectId":"prj_5dwVqN6guypTppF8lVkGRWNxewyy","orgId":"team_HjoisT4tIX3t7ykuSBPlW2q7","projectName":"bhanu-events"}
+{"projectId":"prj_5dwVqN6guypTppF8lVkGRWNxewyy","orgId":"team_HjoisT4tIX3t7ykuSBPlW2q7","projectName":"bhanu-events",
+"rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+
+}
+
+
