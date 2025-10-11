@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Ballonimages } from "../assets/index.tsx"; // Array of image URLs
+import { Ballonimages } from "../assets/index"; // Array of image URLs
 
 const BalloonGallery: React.FC = () => {
   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
