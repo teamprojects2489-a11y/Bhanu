@@ -260,11 +260,8 @@ const GallerySection: React.FC = () => {
         >
           <motion.button
             onClick={() => {
-              console.log("Button clicked!");
-              console.log("Current location:", window.location.href);
               try {
                 navigate("/gallery");
-                console.log("Navigation called successfully");
               } catch (error) {
                 console.error("Navigation error:", error);
               }

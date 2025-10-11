@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 // Lazy load heavy sections
 const DecorationsSection = lazy(
@@ -236,23 +237,11 @@ const Services: React.FC = () => {
       </section>
 
       {/* LAZY-LOADED HEAVY SECTIONS */}
-      <Suspense
-        fallback={
-          <div className="text-center py-10 text-gray-500">
-            Loading Decorations...
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingSpinner />}>
         <DecorationsSection />
       </Suspense>
 
-      <Suspense
-        fallback={
-          <div className="text-center py-10 text-gray-500">
-            Loading Activities...
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingSpinner />}>
         <ActivitiesSection />
       </Suspense>
 

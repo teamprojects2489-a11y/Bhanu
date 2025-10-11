@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import HeroSection from "../components/HeroSection"; // load first
+import HeroSection from "../components/HeroSection";
 
 // Lazy load heavy/non-critical sections
 const EventCarousel = lazy(() => import("../components/EventCarousel"));

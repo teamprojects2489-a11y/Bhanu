@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -32,41 +33,73 @@ import StagebackDrops from "./components/Docarion/Stagebackgrops";
 import Caricutures from "./components/Funactivities/Caricutures";
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-gradient-to-br from-sky-50 via-sky-100 to-sky-200">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/decorations/balloons" element={<BalloonGallery/>} />
-          <Route path="/activities/bottle-art" element={<BottleArtGallery/>} />
-          <Route path="/activities/face-painting" element={<FacePaintingGallery />} />
-          <Route path="/activities/bracelet-making" element={<BraceltMaking />} />
-          <Route path="/activities/key-chain-making" element={<KeyChainMaking/>} />
-          <Route path="/activities/jewelry" element={<JewelryMaking/>} />
-          <Route path="/activities/pebble-art" element={<PebblesArt/>} />
-          <Route path="/activities/hair-braiding" element={<HairBraiding />} />
-          <Route path="/activities/pot-making" element={<PotMaking/>} />  
-          <Route path="/activities/canvas-painting" element={<CanvasPainting/>} />
-          <Route path="/activities/cartoon-characters" element={<CartoonCharacters/>} />  
-          <Route path="/activities/paper-craft" element={<PaperCraft/>} />  
-          <Route path="/activities/nail-art" element={<NailArt/>} />
-          <Route path ='/activities/mehandi' element={<Mehandi/>}/>
-          <Route path="/activities/sand-activity" element={<SandArt/>} />
-          <Route path="/decorations/flowers" element={<FlowerDecoration />} />
-          <Route path="/decorations/entry-arches" element={<EntryArchieves />} />
-          <Route path="/decorations/ribbons" element={<RibbonDecorations />} />
-          <Route path="/decorations/lights" element={<Lightdecors />} />
-          <Route path="/decorations/stage-backdrop" element={<StagebackDrops />} /> 
-          <Route path="/activities/caricatures" element={<Caricutures/>} />
-        </Routes>
-        <Footer />
-        <WhatsAppButton />
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <div className="min-h-screen bg-gradient-to-br from-sky-50 via-sky-100 to-sky-200">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/decorations/balloons" element={<BalloonGallery />} />
+            <Route
+              path="/activities/bottle-art"
+              element={<BottleArtGallery />}
+            />
+            <Route
+              path="/activities/face-painting"
+              element={<FacePaintingGallery />}
+            />
+            <Route
+              path="/activities/bracelet-making"
+              element={<BraceltMaking />}
+            />
+            <Route
+              path="/activities/key-chain-making"
+              element={<KeyChainMaking />}
+            />
+            <Route path="/activities/jewelry" element={<JewelryMaking />} />
+            <Route path="/activities/pebble-art" element={<PebblesArt />} />
+            <Route
+              path="/activities/hair-braiding"
+              element={<HairBraiding />}
+            />
+            <Route path="/activities/pot-making" element={<PotMaking />} />
+            <Route
+              path="/activities/canvas-painting"
+              element={<CanvasPainting />}
+            />
+            <Route
+              path="/activities/cartoon-characters"
+              element={<CartoonCharacters />}
+            />
+            <Route path="/activities/paper-craft" element={<PaperCraft />} />
+            <Route path="/activities/nail-art" element={<NailArt />} />
+            <Route path="/activities/mehandi" element={<Mehandi />} />
+            <Route path="/activities/sand-activity" element={<SandArt />} />
+            <Route path="/decorations/flowers" element={<FlowerDecoration />} />
+            <Route
+              path="/decorations/entry-arches"
+              element={<EntryArchieves />}
+            />
+            <Route
+              path="/decorations/ribbons"
+              element={<RibbonDecorations />}
+            />
+            <Route path="/decorations/lights" element={<Lightdecors />} />
+            <Route
+              path="/decorations/stage-backdrop"
+              element={<StagebackDrops />}
+            />
+            <Route path="/activities/caricatures" element={<Caricutures />} />
+          </Routes>
+          <Footer />
+          <WhatsAppButton />
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 
