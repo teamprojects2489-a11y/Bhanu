@@ -5,7 +5,6 @@ import bithday from '../assets/Birthday/bd1.jpeg'
 import wedding  from '../assets/weddingcermony/wdc.jpg'
 import cevent from '../assets/indiancorporateevent/icv.jpg'
 import festival from '../assets/festival/indfes.jpeg'
-import kids from '../assets/indiankids/kito1.jpeg'
 const FeaturedEventsCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   

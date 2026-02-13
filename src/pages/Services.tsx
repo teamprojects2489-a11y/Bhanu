@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import DecorationsSection from '../components/DecorationsSection';
 import ActivitiesSection from '../components/ActivitiesSection';
-import DanceSection from '../components/DanceSection';
 import { motion } from 'framer-motion';
 
 const Services: React.FC = () => {

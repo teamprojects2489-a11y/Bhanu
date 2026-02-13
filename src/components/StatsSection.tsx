@@ -101,7 +101,7 @@ const StatsSection: React.FC = () => {
               } else if (finalValue?.includes('+')) {
                 number.textContent = `${Math.round(this.targets()[0].textContent)}+`;
               } else {
-                number.textContent = Math.round(this.targets()[0].textContent);
+                number.textContent = Math.round(this.targets()[0].textContent).toString();
               }
             }
           }

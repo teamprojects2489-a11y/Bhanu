@@ -38,7 +38,7 @@ const FeatureCards: React.FC = () => {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleClick = (e, slug:string) => {
+  const handleClick = (e:any, slug:string) => {
     e.preventDefault();
     navigate(slug);
   };
